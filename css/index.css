@@ -1,0 +1,576 @@
+@charset "UTF-8";
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container .main .menu1 {
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/menu_1_bg.png) bottom right/100% 69.3519vh no-repeat;
+  position: relative;
+}
+
+.container .main .menu1 .menu1-inner {
+  position: absolute;
+  top: 12vh;
+  left: 19vw;
+  width: 62vw;
+  height: 55vh;
+  padding: 0 2vw 0 1.8vw;
+  box-sizing: border-box;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper {
+  width: 100%;
+  height: 86%;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-left {
+  width: 36vw;
+  height: 100%;
+  padding: 3.8vh 2.2vw 0 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-left .question-left-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-left .question-left-inner .pinyin {
+  display: block;
+  text-align: center;
+  font-size: 3.6296vh;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-left .question-left-inner .content {
+  text-align: center;
+  font-size: 7.4074vh;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right {
+  width: calc(100% - 36vw);
+  height: 100%;
+  padding-top: 4vh;
+  padding-right: 1vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .desc {
+  height: 7.037vh;
+  font-size: 2.7778vh;
+  font-weight: 600;
+  color: #3a290f;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .option {
+  width: 100%;
+  line-height: 4vh;
+  padding: 0 1vw;
+  box-sizing: border-box;
+  background: #e2d6c1;
+  color: #000;
+  font-size: 2.2222vh;
+  font-weight: 600;
+  position: relative;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .option .option-id {
+  font-size: 2.7778vh;
+  color: #8b693a;
+  font-weight: bold;
+  padding-right: 1.0417vw;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .right::after {
+  content: "对了";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .wrong::after {
+  content: "错了";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .option:not(:first-child) {
+  margin-top: 4vh;
+}
+
+.container .main .menu1 .levels {
+  position: absolute;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+}
+
+.container .main .menu1 .levels .level-item {
+  position: absolute;
+  bottom: 0;
+  width: 6.3542vw;
+  height: 11.2963vh;
+  border: 0.1042vw solid #fff;
+  background: #cab99d;
+  color: #3a290f;
+  font-size: 1.7708vw;
+  font-weight: 700;
+  text-align: center;
+  line-height: 11.2963vh;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.container .main .menu1 .levels .active {
+  background: #c55f5c;
+}
+
+.container .main .menu1 .levels .level-item:nth-child(1) {
+  left: 20vw;
+}
+
+.container .main .menu1 .levels .level-item:nth-child(2) {
+  left: 34vw;
+}
+
+.container .main .menu1 .levels .level-item:nth-child(3) {
+  left: 48vw;
+}
+
+.container .main .menu1 .levels .level-item:nth-child(4) {
+  left: 62vw;
+}
+
+.container .main .menu2 {
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/menu_2_bg.png) bottom right/100% 69.3519vh no-repeat;
+  position: relative;
+}
+
+.container .main .menu2 .menu2-inner {
+  position: absolute;
+  top: 12vh;
+  left: 19vw;
+  width: 62vw;
+  height: 55vh;
+  z-index: 1;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container {
+  width: 100%;
+  height: calc(100% - 8vh);
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .title {
+  width: 100%;
+  height: 10vh;
+  line-height: 10vh;
+  font-size: 3.5185vh;
+  font-weight: bold;
+  text-align: center;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option {
+  width: 100%;
+  padding: 0 8vw;
+  box-sizing: border-box;
+  font-size: 2.2222vh;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option .option-item {
+  width: 100%;
+  height: 10vh;
+  padding: 0 2vw;
+  box-sizing: border-box;
+  line-height: 10vh;
+  background: #e2d6c1;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option .option-item:not(:first-child) {
+  margin-top: 4vh;
+}
+
+.container .main .menu2 .menu2-inner .tip {
+  width: 100%;
+  height: 8vh;
+  line-height: 8vh;
+  font-size: 2.5926vh;
+  text-align: center;
+}
+
+.container .main .menu2 .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  padding: 0 19vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.container .main .menu2 .bottom .headset {
+  width: 2.8646vw;
+  flex: none;
+}
+
+.container .main .menu2 .bottom .play-pause {
+  width: 3.4896vw;
+  height: 6.1111vh;
+  margin: 0 1.0417vw;
+  flex: none;
+}
+
+.container .main .menu2 .bottom audio {
+  width: 100%;
+}
+
+.container .main .menu3 {
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/menu_3_bg.png) bottom right/100% 15.463vh no-repeat;
+  position: relative;
+}
+
+.container .main .menu3 .menu3-inner {
+  width: 100%;
+  height: calc(100% - 15vh);
+  background: url(../imgs/pan.png) center 20%/36.7708vw 68.2407vh no-repeat;
+  position: relative;
+}
+
+.container .main .menu3 .menu3-inner .musics {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  margin-left: -23.4375vw;
+  width: 46.875vw;
+  height: 29.9074vh;
+  background: url(../imgs/red_bg.png) center center/100% 100% no-repeat;
+}
+
+.container .main .menu3 .menu3-inner .options {
+  position: absolute;
+  bottom: 35vh;
+  left: 50%;
+  margin-left: -23.4375vw;
+  width: 46.875vw;
+  height: 9.3519vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .main .menu3 .menu3-inner .options .option-pause-play {
+  margin: 0 1.0417vw;
+}
+
+.container .main .menu3 .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  padding: 2vh 19vw;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.container .main .menu3 .bottom .lyric-name {
+  width: 100%;
+  line-height: 4vh;
+  font-weight: bold;
+  font-size: 1.8519vh;
+}
+
+.container .main .menu3 .bottom .lyric-text {
+  width: 100%;
+  line-height: 3vh;
+  font-weight: 500;
+  font-size: 1.4815vh;
+}
+
+.container .main .menu4 {
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/menu_4_bg.png) bottom right/100% 69.3519vh no-repeat;
+  position: relative;
+}
+
+.container .main .menu4 .menu4-inner {
+  position: absolute;
+  top: 12vh;
+  left: 19vw;
+  width: 62vw;
+  height: 55vh;
+}
+
+.container .main .enter {
+  position: absolute;
+  top: 52vh;
+  right: 23vw;
+  width: 7.3958vw;
+  height: 13.1481vh;
+  animation-iteration-count: infinite;
+}
+
+.container .main .menus {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container .main .menus .menu-item {
+  width: 10.4167vw;
+}
+
+.container .main .menus .menu-item:nth-child(1) {
+  position: absolute;
+  top: 13vh;
+  left: 37vh;
+}
+
+.container .main .menus .menu-item:nth-child(1) img {
+  height: 56.1111vh;
+}
+
+.container .main .menus .menu-item:nth-child(1):hover,
+.container .main .menus .menu-item:nth-child(1):active img {
+  content: url(../imgs/menu_1_active.png);
+}
+
+.container .main .menus .menu-item:nth-child(2) {
+  position: absolute;
+  top: 11vh;
+  left: 65vh;
+  animation-delay: 0.3s;
+}
+
+.container .main .menus .menu-item:nth-child(2) img {
+  height: 52.4074vh;
+}
+
+.container .main .menus .menu-item:nth-child(2):hover,
+.container .main .menus .menu-item:nth-child(2):active img {
+  content: url(../imgs/menu_2_active.png);
+}
+
+.container .main .menus .menu-item:nth-child(3) {
+  position: absolute;
+  top: 7vh;
+  left: 93vh;
+  animation-delay: 0.6s;
+}
+
+.container .main .menus .menu-item:nth-child(3) img {
+  height: 61.0185vh;
+}
+
+.container .main .menus .menu-item:nth-child(3):hover,
+.container .main .menus .menu-item:nth-child(3):active img {
+  content: url(../imgs/menu_3_active.png);
+}
+
+.container .main .menus .menu-item:nth-child(4) {
+  position: absolute;
+  top: 7vh;
+  left: 122vh;
+  animation-delay: 0.9s;
+}
+
+.container .main .menus .menu-item:nth-child(4) img {
+  height: 57.2222vh;
+}
+
+.container .main .menus .menu-item:nth-child(4):hover,
+.container .main .menus .menu-item:nth-child(4):active img {
+  content: url(../imgs/menu_4_active.png);
+}
+
+.container .main .back {
+  position: absolute;
+  bottom: 11.5vh;
+  right: 19.5vw;
+}
+
+.container .main-0 {
+  background: url(../imgs/main_1.png) center 30%/63.2813vw 56.6667vh no-repeat;
+}
+
+.container .main-1 {
+  background: url(../imgs/main_2.png) center 30%/63.2813vw 56.6667vh no-repeat;
+}
+
+.container .main-3 {
+  background: url(../imgs/main_2.png) center 30%/63.2813vw 56.6667vh no-repeat;
+}
+
+.container header {
+  width: 100%;
+  height: 6.4815vh;
+  padding: 0 12.5vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: none;
+}
+
+.container header .logo {
+  width: 19.6875vw;
+}
+
+.container header .back {
+  width: 7.3438vw;
+}
+
+.container .white-header {
+  background: #fff;
+}
+
+.container footer {
+  width: 100%;
+  height: 4.6296vh;
+  line-height: 4.6296vh;
+  padding: 0 12.5vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  background: #252525;
+  color: #fff;
+  flex: none;
+}
+
+.container .swiper-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.index-bg {
+  background: url(../imgs/bg.jpg) center center/100% 100% no-repeat;
+}
+
+.menus-bg {
+  background: url(../imgs/menu_bg.jpg) center center/100% 100% no-repeat;
+}
+
+.menu-0 {
+  background: url(../imgs/1_bg.jpg) center center/100% 100% no-repeat;
+}
+
+.menu-1 {
+  background: url(../imgs/2_bg.jpg) center center/100% 100% no-repeat;
+}
+
+.menu-2 {
+  background: url(../imgs/3_bg.jpg) center center/100% 100% no-repeat;
+}
+
+.menu-3 {
+  background: url(../imgs/4_bg.jpg) center center/100% 100% no-repeat;
+}
+
+.menu1 .swiper-button-next:after,
+.menu1 .swiper-container-rtl .swiper-button-prev:after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/next.png");
+  background-repeat: no-repeat;
+  width: 9.8438vw;
+  height: 4.6296vh;
+  outline: none;
+}
+
+.menu1 .swiper-button-next.swiper-button-disabled::after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/next_disabled.png");
+  background-repeat: no-repeat;
+  width: 9.8438vw;
+  height: 4.6296vh;
+  outline: none;
+}
+
+.menu1 .swiper-button-prev:after,
+.menu1 .swiper-container-rtl .swiper-button-next:after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/prev.png");
+  background-repeat: no-repeat;
+  width: 9.8438vw;
+  height: 4.6296vh;
+  outline: none;
+}
+
+.menu1 .swiper-button-prev.swiper-button-disabled::after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/prev_disabled.png");
+  background-repeat: no-repeat;
+  width: 9.8438vw;
+  height: 4.6296vh;
+  outline: none;
+}
+
+.menu1 .swiper-button-prev {
+  top: unset;
+  bottom: 1vh;
+  left: 2vw;
+  outline: none;
+  width: 9.8438vw;
+  height: 4.6296vh;
+}
+
+.menu1 .swiper-button-next {
+  top: unset;
+  bottom: 1vh;
+  left: 23.6vw;
+  outline: none;
+  width: 9.8438vw;
+  height: 4.6296vh;
+}
+
+.menu1 .swiper-button-prev.swiper-button-disabled,
+.menu1 .swiper-button-next.swiper-button-disabled {
+  cursor: auto;
+  pointer-events: all;
+}

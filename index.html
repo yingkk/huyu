@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="./js/swiper/swiper.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+    <script  type="text/javascript" src="./js/screenFull.js"></script>
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript" src="./js/swiper/swiper.min.js"></script>
+    <title>上海博物馆</title>
+</head>
+
+<body>
+    <div id="app"
+        :class="['container', isEnter ? 'menus-bg': 'index-bg', activeMenuIndex > -1 ? 'menu-'+activeMenuIndex : '']">
+        <header :class="!isEnter ? 'white-header': ''">
+            <div class="logo">
+                <img :src="!isEnter ? './imgs/logo_1.png': './imgs/logo_2.png'" alt="上海博物馆">
+            </div>
+            <div class="back" @click="handleBackToIndex">
+                <img :src="!isEnter ? './imgs/back_index_1.png': './imgs/back_index_2.png'" alt="返回首页">
+            </div>
+            <div class="fullScreen" @click="handleFullScreen">
+                全屏
+            </div>
+        </header>
+        <div :class="['main', activeMenuIndex > -1 ? 'main-'+activeMenuIndex: '']">
+            <div class="menu1" v-show="isEnter && !activeMenuIndex">
+                <div class="menu1-inner">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="(item, index) in currentDialects">
+                                <div class="question">
+                                    <div class="question-left">
+                                        <div class="question-left-inner">
+                                            <span class="pinyin">
+                                                [ {{ item.pinyin}} ]
+                                            </span>
+                                            <span class="content"> {{item.title}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="question-right">
+                                        <div class="desc">{{ item.desc }}</div>
+                                        <div :class="['option', index === dialectSelectedIndex && dialectSelectedOption && dialectSelectedOption.value ? 'right': '', index === dialectSelectedIndex && dialectSelectedOption && !dialectSelectedOption.value ? 'wrong': (dialectSelectedOption && op.value ? 'right': '') ]"
+                                            v-for="(op, index) in item.options"
+                                            @click="!dialectSelectFlag && handleClickOption(index, op)">
+                                            <span class="option-id">{{ op.key }}</span> {{ op.label }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+                <div class="levels">
+                    <div :class="['level-item', index === activeLevelIndex ? 'active': '']"
+                        v-for="(item, index) in levels" @click="handleDialectLevel(index)">
+                        {{ item }}
+                    </div>
+                </div>
+                <div class="back">
+                    <img src="./imgs/back.png" alt="返回">
+                </div>
+            </div>
+
+            <div class="menu2" v-show="isEnter && activeMenuIndex === 1">
+                <div class="menu2-inner">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="title">第一课 早上</div>
+                                <div class="option">
+                                    <div class="option-item">B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。</div>
+                                    <div class="option-item">B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide"></div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <div class="tip">
+                        点击按钮听音频，选择你认为正确的答案
+                    </div>
+                </div>
+                <div class="back">
+                    <img src="./imgs/back.png" alt="返回">
+                </div>
+                <div class="bottom">
+                    <div class="headset">
+                        <img src="./imgs/headset.png">
+                    </div>
+                    <div class="play-pause">
+                        <img src="./imgs/play.png">
+                    </div>
+                    <audio src=""> </audio>
+                </div>
+            </div>
+
+            <div class="menu3" v-show="isEnter && activeMenuIndex === 2">
+                <div class="menu3-inner">
+                    <div class="options">
+                        <div class="option-prev">
+                            <img src="./imgs/pan_prev.png" alt="">
+                        </div>
+                        <div class="option-pause-play">
+                            <img src="./imgs/pan_play.png" alt="">
+                        </div>
+                        <div class="option-next">
+                            <img src="./imgs/pan_next.png" alt="">
+                        </div>
+                    </div>
+                    <div class="musics">
+
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="lyric-name">
+                        《小八腊子开会了》
+                    </div>
+                    <p class="lyric-text">
+                        落雨了，打烊啦，小八腊子开会了，开会了！落雨了，打烊了，小八腊子开会了。
+                        落雨了，打烊了，小八腊子开会了。落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。
+                    </p>
+                </div>
+                <div class="back">
+                    <img src="./imgs/back.png" alt="返回">
+                </div>
+            </div>
+
+            <div class="menu4" v-show="isEnter && activeMenuIndex === 3">
+                <div class="menu4-inner">
+
+                </div>
+                <div class="back">
+                    <img src="./imgs/back.png" alt="返回">
+                </div>
+            </div>
+
+            <!-- menus -->
+            <div class="menus" v-if="isEnter && activeMenuIndex === -1">
+                <div class="menu-item animated fadeInLeft" v-for="(item, index) in menus" @click="handleMenu(index)">
+                    <img :src="'./imgs/menu_'+ (index + 1) +'.png'" :alt="item">
+                </div>
+            </div>
+
+            <!-- enter -->
+            <div class="enter animated bounce" v-show="!isEnter" @click="handleEnter">
+                <img src="./imgs/enter.png" alt="进入">
+            </div>
+        </div>
+        <footer v-if="activeMenuIndex === -1">
+            Copyright © 2015 ShanghaiMuseum.net 上海博物馆 版权所有 备案号：沪IPC备10003390号-4
+        </footer>
+    </div>
+</body>
+<script type="text/javascript" src="./js/index.js"></script>
+
+</html>
