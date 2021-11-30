@@ -4,6 +4,7 @@ new Vue({
     return {
       isEnter: false,
       activeMenuIndex: -1,
+      // 方言
       dialectSwiper: null,
       activeLevelIndex: 0,
       dialects: {
@@ -462,7 +463,189 @@ new Vue({
       dialectSelectFlag: false, //是否已选择
       menus: ["上海方言", "沪语听译", "沪语童谣", "洋泾浜话"],
       levels: ["初级", "中级", "高级", "终极"],
+
+      //听译
+      listens: [
+        {
+          title: "第一课 问候 情景(一)",
+          audio: "",
+          options: [
+            {
+              key: "A",
+              label:
+                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
+              value: true,
+            },
+            {
+              key: "B",
+              label:
+                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
+              value: false,
+            },
+          ],
+        },
+        {
+          title: "第一课 问候 情景(二)",
+          audio: "",
+          options: [
+            {
+              key: "A",
+              label:
+                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
+              value: true,
+            },
+            {
+              key: "B",
+              label:
+                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
+              value: false,
+            },
+          ],
+        },
+        {
+          title: "第一课 问候 情景(一)",
+          audio: "",
+          options: [
+            {
+              key: "A",
+              label:
+                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
+              value: true,
+            },
+            {
+              key: "B",
+              label:
+                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
+              value: false,
+            },
+          ],
+        },
+        {
+          title: "第二课 在路上 情景(一)",
+          audio: "",
+          options: [
+            {
+              key: "A",
+              label:
+                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
+              value: true,
+            },
+            {
+              key: "B",
+              label:
+                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
+              value: false,
+            },
+          ],
+        },
+      ],
+
+      //童谣
+      activeTabIndex: 0,
+      tabs: ["沪语童谣", "沪语老照片"],
+      musics: {
+        0: [
+          {
+            title: "《小八腊子开会了》",
+            audio: "",
+            lyric:
+              "落雨了，打烊啦，小八腊子开会了，开会了！落雨了，打烊了，小八腊子开会了。 落雨了，打烊了，小八腊子开会了。落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥》",
+            audio: "",
+            lyric:
+              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+        ],
+        1: [
+          {
+            title: "《小八腊子开会了2》",
+            audio: "",
+            lyric:
+              "22落雨了，打烊啦，小八腊子开会了，开会了！落雨了，打烊了，小八腊子开会了。 落雨了，打烊了，小八腊子开会了。落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥2》",
+            audio: "",
+            lyric:
+              "22摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥2》",
+            audio: "",
+            lyric:
+              "22摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥2》",
+            audio: "",
+            lyric:
+              "22摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥2》",
+            audio: "",
+            lyric:
+              "22摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥2》",
+            audio: "",
+            lyric:
+              "22摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+          {
+            title: "《摇啊摇！摇到外婆桥2》",
+            audio: "",
+            lyric:
+              "22摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
+          },
+        ],
+      },
+      currentMusics: [],
+      musicSwiper: null,
+      musicSwiperIndex: 0,
     };
+  },
+  created: function () {
+    this.currentMusics = this.musics["0"];
   },
   methods: {
     handleEnter: function () {
@@ -474,11 +657,15 @@ new Vue({
         this.initDialectSwiper();
         this.handleDialectLevel(0);
       }
+      if (this.activeMenuIndex === 1) {
+        this.initListenAndTranslateSwiper();
+      }
+      if (this.activeMenuIndex === 2) {
+        this.initMusicSwiper();
+      }
     },
     handleBack: function () {},
-    handleFullScreen: function() {
-      
-    },
+    handleFullScreen: function () {},
     handleClickOption: function (index, item) {
       this.dialectSelectFlag = true;
       this.dialectSelectedIndex = index;
@@ -492,6 +679,13 @@ new Vue({
     handleBackToIndex: function () {
       window.location.href = "../index.html";
     },
+    handleClickTab: function (index) {
+      if(this.activeTabIndex !== index) {
+         this.musicSwiperIndex = 0;
+      }
+      this.activeTabIndex = index;
+      this.currentMusics = this.musics[index];
+    },
     initDialectSwiper() {
       let _this = this;
       this.dialectSwiper = new Swiper(".menu1 .swiper-container", {
@@ -503,15 +697,15 @@ new Vue({
           prevEl: ".swiper-button-prev",
         },
         on: {
-          slideChange: function() {
+          slideChange: function () {
             _this.dialectSelectFlag = false;
             _this.dialectSelectedIndex = null;
             _this.dialectSelectedOption = null;
-          }
-        }
+          },
+        },
       });
     },
-    initListenTranslationSwiper() {
+    initListenAndTranslateSwiper() {
       new Swiper(".menu2 .swiper-container", {
         observer: true,
         observeParents: true,
@@ -519,6 +713,26 @@ new Vue({
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
+        },
+      });
+    },
+    initMusicSwiper() {
+      let _this = this;
+      this.musicSwiper = new Swiper(".menu3 .swiper-container", {
+        slidesPerView: 6,
+        spaceBetween: 10,
+        centeredSlides: true,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        on: {
+          slideChange: function () {
+            _this.musicSwiperIndex = this.activeIndex;
+          },
         },
       });
     },

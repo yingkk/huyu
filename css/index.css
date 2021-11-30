@@ -193,9 +193,6 @@
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .title {
@@ -223,8 +220,8 @@
   background: #e2d6c1;
 }
 
-.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option .option-item:not(:first-child) {
-  margin-top: 4vh;
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option:not(:first-child) {
+  margin-top: 3vh;
 }
 
 .container .main .menu2 .menu2-inner .tip {
@@ -273,7 +270,9 @@
 .container .main .menu3 .menu3-inner {
   width: 100%;
   height: calc(100% - 15vh);
-  background: url(../imgs/pan.png) center 20%/36.7708vw 68.2407vh no-repeat;
+  position: relative;
+  padding: 33vh 0 5vh 0;
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -284,7 +283,69 @@
   margin-left: -23.4375vw;
   width: 46.875vw;
   height: 29.9074vh;
-  background: url(../imgs/red_bg.png) center center/100% 100% no-repeat;
+  padding: 2vh 2vw;
+  background: #bd2a32;
+  color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .main .menu3 .menu3-inner .musics .tab {
+  width: 100%;
+  display: flex;
+  font-size: 2.2222vh;
+  flex: none;
+}
+
+.container .main .menu3 .menu3-inner .musics .tab .tab-item {
+  display: block;
+  height: 100%;
+  font-weight: 600;
+  border: 0.0521vw solid #fff;
+  padding: 0.5vh 2vw;
+  box-sizing: border-box;
+}
+
+.container .main .menu3 .menu3-inner .musics .tab .active {
+  background: #fff;
+  color: #bd2a32;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 2.2222vh;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container {
+  width: 84%;
+  height: 100%;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container .swiper-slide {
+  width: 14%;
+  height: 100%;
+  padding: 1vh 1vw;
+  box-sizing: border-box;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container .swiper-slide .music-item {
+  height: 22vh;
+  padding: 0.6vh 0.4vw;
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  writing-mode: vertical-rl;
+  border-radius: 1.5625vw;
+  opacity: 0.6;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container .swiper-slide .active {
+  border: 0.1042vw solid #FFF;
+  opacity: 1;
 }
 
 .container .main .menu3 .menu3-inner .options {
@@ -301,6 +362,10 @@
 
 .container .main .menu3 .menu3-inner .options .option-pause-play {
   margin: 0 1.0417vw;
+}
+
+.container .main .menu3 .inner-bg {
+  background: url(../imgs/pan.png) center 20%/36.7708vw 68.2407vh no-repeat;
 }
 
 .container .main .menu3 .bottom {
@@ -510,7 +575,9 @@
 }
 
 .menu1 .swiper-button-next:after,
-.menu1 .swiper-container-rtl .swiper-button-prev:after {
+.menu1 .swiper-container-rtl .swiper-button-prev:after,
+.menu2 .swiper-button-next:after,
+.menu2 .swiper-container-rtl .swiper-button-prev:after {
   content: "";
   background-size: cover;
   background-image: url("../imgs/next.png");
@@ -520,7 +587,8 @@
   outline: none;
 }
 
-.menu1 .swiper-button-next.swiper-button-disabled::after {
+.menu1 .swiper-button-next.swiper-button-disabled::after,
+.menu2 .swiper-button-next.swiper-button-disabled::after {
   content: "";
   background-size: cover;
   background-image: url("../imgs/next_disabled.png");
@@ -531,7 +599,9 @@
 }
 
 .menu1 .swiper-button-prev:after,
-.menu1 .swiper-container-rtl .swiper-button-next:after {
+.menu1 .swiper-container-rtl .swiper-button-next:after,
+.menu2 .swiper-button-prev:after,
+.menu2 .swiper-container-rtl .swiper-button-next:after {
   content: "";
   background-size: cover;
   background-image: url("../imgs/prev.png");
@@ -541,7 +611,8 @@
   outline: none;
 }
 
-.menu1 .swiper-button-prev.swiper-button-disabled::after {
+.menu1 .swiper-button-prev.swiper-button-disabled::after,
+.menu2 .swiper-button-prev.swiper-button-disabled::after {
   content: "";
   background-size: cover;
   background-image: url("../imgs/prev_disabled.png");
@@ -551,7 +622,8 @@
   outline: none;
 }
 
-.menu1 .swiper-button-prev {
+.menu1 .swiper-button-prev,
+.menu2 .swiper-button-prev {
   top: unset;
   bottom: 1vh;
   left: 2vw;
@@ -560,7 +632,8 @@
   height: 4.6296vh;
 }
 
-.menu1 .swiper-button-next {
+.menu1 .swiper-button-next,
+.menu2 .swiper-button-next {
   top: unset;
   bottom: 1vh;
   left: 23.6vw;
@@ -570,7 +643,89 @@
 }
 
 .menu1 .swiper-button-prev.swiper-button-disabled,
-.menu1 .swiper-button-next.swiper-button-disabled {
+.menu1 .swiper-button-next.swiper-button-disabled,
+.menu2 .swiper-button-prev.swiper-button-disabled,
+.menu2 .swiper-button-next.swiper-button-disabled {
+  cursor: auto;
+  pointer-events: all;
+}
+
+.menu2 .swiper-button-prev {
+  top: unset;
+  bottom: 1vh;
+  left: 16vw;
+  outline: none;
+  width: 9.8438vw;
+  height: 4.6296vh;
+}
+
+.menu2 .swiper-button-next {
+  top: unset;
+  bottom: 1vh;
+  left: 35vw;
+  outline: none;
+  width: 9.8438vw;
+  height: 4.6296vh;
+}
+
+.menu3 .swiper-button-next:after,
+.menu3 .swiper-container-rtl .swiper-button-prev:after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/next_circle.png");
+  background-repeat: no-repeat;
+  width: 2.1875vw;
+  height: 3.8889vh;
+  outline: none;
+}
+
+.menu3 .swiper-button-next.swiper-button-disabled::after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/next_circle.png");
+  background-repeat: no-repeat;
+  width: 2.1875vw;
+  height: 3.8889vh;
+  outline: none;
+}
+
+.menu3 .swiper-button-prev:after,
+.menu3 .swiper-container-rtl .swiper-button-next:after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/prev_circle.png");
+  background-repeat: no-repeat;
+  width: 2.1875vw;
+  height: 3.8889vh;
+  outline: none;
+}
+
+.menu3 .swiper-button-prev.swiper-button-disabled::after {
+  content: "";
+  background-size: cover;
+  background-image: url("../imgs/prev_circle.png");
+  background-repeat: no-repeat;
+  width: 2.1875vw;
+  height: 3.8889vh;
+  outline: none;
+}
+
+.menu3 .swiper-button-prev {
+  outline: none;
+  width: 2.1875vw;
+  height: 3.8889vh;
+  left: 0;
+}
+
+.menu3 .swiper-button-next {
+  outline: none;
+  width: 2.1875vw;
+  height: 3.8889vh;
+  right: 0;
+}
+
+.menu3 .swiper-button-prev.swiper-button-disabled,
+.menu3 .swiper-button-next.swiper-button-disabled {
   cursor: auto;
   pointer-events: all;
 }

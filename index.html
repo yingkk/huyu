@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./js/swiper/swiper.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-    <script  type="text/javascript" src="./js/screenFull.js"></script>
+    <script type="text/javascript" src="./js/screenFull.js"></script>
     <script type="text/javascript" src="./js/vue.js"></script>
     <script type="text/javascript" src="./js/swiper/swiper.min.js"></script>
     <title>上海博物馆</title>
@@ -25,9 +25,6 @@
             </div>
             <div class="back" @click="handleBackToIndex">
                 <img :src="!isEnter ? './imgs/back_index_1.png': './imgs/back_index_2.png'" alt="返回首页">
-            </div>
-            <div class="fullScreen" @click="handleFullScreen">
-                全屏
             </div>
         </header>
         <div :class="['main', activeMenuIndex > -1 ? 'main-'+activeMenuIndex: '']">
@@ -75,14 +72,12 @@
                 <div class="menu2-inner">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="title">第一课 早上</div>
-                                <div class="option">
-                                    <div class="option-item">B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。</div>
-                                    <div class="option-item">B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。</div>
+                            <div class="swiper-slide" v-for="(item, index) in listens">
+                                <div class="title">{{ item.title }}</div>
+                                <div class="option" v-for="(op, index) in item.options">
+                                    <div class="option-item">{{ op.label }}</div>
                                 </div>
                             </div>
-                            <div class="swiper-slide"></div>
                         </div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
@@ -106,8 +101,8 @@
             </div>
 
             <div class="menu3" v-show="isEnter && activeMenuIndex === 2">
-                <div class="menu3-inner">
-                    <div class="options">
+                <div :class="['menu3-inner', !activeTabIndex ? 'inner-bg': '']">
+                    <div v-show="!activeTabIndex" class="options">
                         <div class="option-prev">
                             <img src="./imgs/pan_prev.png" alt="">
                         </div>
@@ -119,7 +114,21 @@
                         </div>
                     </div>
                     <div class="musics">
-
+                        <div class="tab">
+                            <span :class="['tab-item', activeTabIndex === index ? 'active': '']"
+                                v-for="(item, index) in tabs" @click="handleClickTab(index)">{{ item }}</span>
+                        </div>
+                        <div class="musics-swiper">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="(item, index) in currentMusics">
+                                        <span :class="['music-item', musicSwiperIndex === index ? 'active': '']">{{item.title}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="bottom">
