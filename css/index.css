@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .container {
   width: 100%;
   height: 100%;
@@ -109,17 +108,17 @@
 }
 
 .container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .right::after {
-  content: "对了";
+  content: url(../imgs/right.png);
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -1vh;
 }
 
 .container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .wrong::after {
-  content: "错了";
+  content: url(../imgs/wrong.png);
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -1vh;
 }
 
 .container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .option:not(:first-child) {

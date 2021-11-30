@@ -91,16 +91,16 @@
                 }
               }
               .right::after {
-                content: "对了";
+                content: url(../imgs/right.png);
                 position: absolute;
                 right: 0;
-                bottom: 0;
+                bottom: -1vh;
               }
               .wrong::after {
-                content: "错了";
+                content: url(../imgs/wrong.png);
                 position: absolute;
                 right: 0;
-                bottom: 0;
+                bottom: -1vh;
               }
               .option:not(:first-child) {
                 margin-top: 4vh;

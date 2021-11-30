@@ -119,25 +119,32 @@
                                 v-for="(item, index) in tabs" @click="handleClickTab(index)">{{ item }}</span>
                         </div>
                         <div class="musics-swiper">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" v-for="(item, index) in currentMusics">
-                                        <span :class="['music-item', musicSwiperIndex === index ? 'active': '']">{{item.title}}</span>
+                            <template v-if="!activeTabIndex">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"  v-for="(item, index) in currentMusics">
+                                            <span :class="['music-item', musicSwiperIndex === index ? 'active': '']">{{item.title}}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </template>
+                            <template v-else>
+                               aaa
+                            </template>
                         </div>
                     </div>
                 </div>
-                <div class="bottom">
+                <div class="bottom" v-if="!activeTabIndex">
                     <div class="lyric-name">
-                        《小八腊子开会了》
+                        <!-- 《小八腊子开会了》  -->
+                        {{ currentMusics[musicSwiperIndex].title}}
                     </div>
                     <p class="lyric-text">
-                        落雨了，打烊啦，小八腊子开会了，开会了！落雨了，打烊了，小八腊子开会了。
-                        落雨了，打烊了，小八腊子开会了。落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。
+                        {{ currentMusics[musicSwiperIndex].lyric}} 
+                        <!-- 落雨了，打烊啦，小八腊子开会了，开会了！落雨了，打烊了，小八腊子开会了。
+                        落雨了，打烊了，小八腊子开会了。落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。 -->
                     </p>
                 </div>
                 <div class="back">
