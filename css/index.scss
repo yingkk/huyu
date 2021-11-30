@@ -284,7 +284,7 @@
             box-sizing: border-box;
             position: relative;
             font-size: 2.2222vh;
-            .swiper-container {
+            .swiper-container.music {
               width: 84%;
               height: 100%;
               .swiper-slide {
@@ -307,6 +307,16 @@
                   border: 0.1042vw solid #FFF;
                   opacity: 1;
                 }
+              }
+            }
+            .swiper-container.old-pic {
+              width: 84%;
+              height: 100%;
+              .swiper-slide {
+                width: 26%;
+                height: 100%;
+                padding: 1vh 1vw;
+                box-sizing: border-box;
               }
             }
           }
@@ -622,7 +632,6 @@
   .swiper-button-next.swiper-button-disabled::after {
     content: "";
     background-size: cover;
-    // background-image: url("../imgs/next_circle_disabled.png");
     background-image: url("../imgs/next_circle.png");
     background-repeat: no-repeat;
     width: 2.1875vw;
@@ -644,7 +653,6 @@
   .swiper-button-prev.swiper-button-disabled::after {
     content: "";
     background-size: cover;
-    // background-image: url("../imgs/prev_circle_disabled.png");
     background-image: url("../imgs/prev_circle.png");
     background-repeat: no-repeat;
     width: 2.1875vw;

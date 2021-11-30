@@ -319,19 +319,19 @@
   font-size: 2.2222vh;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music {
   width: 84%;
   height: 100%;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container .swiper-slide {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music .swiper-slide {
   width: 14%;
   height: 100%;
   padding: 1vh 1vw;
   box-sizing: border-box;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container .swiper-slide .music-item {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music .swiper-slide .music-item {
   height: 22vh;
   padding: 0.6vh 0.4vw;
   box-sizing: border-box;
@@ -342,9 +342,21 @@
   opacity: 0.6;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container .swiper-slide .active {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music .swiper-slide .active {
   border: 0.1042vw solid #FFF;
   opacity: 1;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.old-pic {
+  width: 84%;
+  height: 100%;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.old-pic .swiper-slide {
+  width: 26%;
+  height: 100%;
+  padding: 1vh 1vw;
+  box-sizing: border-box;
 }
 
 .container .main .menu3 .menu3-inner .options {

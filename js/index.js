@@ -543,7 +543,7 @@ new Vue({
       //童谣
       activeTabIndex: 0,
       tabs: ["沪语童谣", "沪语老照片"],
-      musics: {
+      tabData: {
         0: [
           {
             title: "《小八腊子开会了》",
@@ -595,17 +595,53 @@ new Vue({
           },
         ],
         1: [
-           "./imgs/pic_1.png",
-           "./imgs/pic_2.png"
+          "./imgs/pic_1.png",
+          "./imgs/pic_2.png",
+          "./imgs/pic_3.png",
+          "./imgs/pic_4.png",
+          "./imgs/pic_5.png",
+          "./imgs/pic_6.png",
+          "./imgs/pic_7.png",
+          "./imgs/pic_8.png",
+          "./imgs/pic_9.png",
+          "./imgs/pic_10.png",
+          "./imgs/pic_11.png",
+          "./imgs/pic_12.png",
+          "./imgs/pic_13.png",
+          "./imgs/pic_14.png",
+          "./imgs/pic_15.png",
+          "./imgs/pic_16.png",
+          "./imgs/pic_17.png",
+          "./imgs/pic_18.png",
+          "./imgs/pic_19.png",
+          "./imgs/pic_20.png",
+          "./imgs/pic_21.png",
+          "./imgs/pic_22.png",
+          "./imgs/pic_23.png",
+          "./imgs/pic_24.png",
+          "./imgs/pic_25.png",
+          "./imgs/pic_26.png",
+          "./imgs/pic_27.png",
+          "./imgs/pic_28.png",
+          "./imgs/pic_29.png",
+          "./imgs/pic_30.png",
+          "./imgs/pic_31.png",
+          "./imgs/pic_32.png",
+          "./imgs/pic_33.png",
+          "./imgs/pic_34.png",
+          "./imgs/pic_35.png",
+          "./imgs/pic_36.png",
+          "./imgs/pic_37.png",
         ],
       },
-      currentMusics: [],
       musicSwiper: null,
       musicSwiperIndex: 0,
+      oldPictureSwiper: null,
+      oldPictureSwiperIndex: 0,
     };
   },
   created: function () {
-    this.currentMusics = this.musics["0"];
+    // this.currentMusics = this.tabData["0"];
   },
   methods: {
     handleEnter: function () {
@@ -634,17 +670,16 @@ new Vue({
     handleDialectLevel: function (index) {
       this.activeLevelIndex = index;
       this.currentDialects = this.dialects[index];
-      this.dialectSwiper.slideTo(0, 100);
+      this.dialectSwiper.slideTo(0);
     },
     handleBackToIndex: function () {
       window.location.href = "../index.html";
     },
     handleClickTab: function (index) {
-      if(this.activeTabIndex !== index) {
-        this.musicSwiper.slideTo(0);
-      }
       this.activeTabIndex = index;
-      this.currentMusics = this.musics[index];
+      if (this.activeTabIndex) {
+        this.initOldPictureSwiper();
+      }
     },
     initDialectSwiper() {
       let _this = this;
@@ -676,9 +711,9 @@ new Vue({
         },
       });
     },
-    initMusicSwiper() {
+    initMusicSwiper: function () {
       let _this = this;
-      this.musicSwiper = new Swiper(".menu3 .swiper-container", {
+      this.musicSwiper = new Swiper(".menu3 .music", {
         slidesPerView: 6,
         spaceBetween: 10,
         centeredSlides: true,
@@ -694,6 +729,27 @@ new Vue({
             _this.musicSwiperIndex = this.activeIndex;
           },
         },
+      });
+    },
+    initOldPictureSwiper: function () {
+      let _this = this;
+      this.oldPictureSwiper = new Swiper(".menu3 .old-pic", {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        freeMode: true,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        on: {
+          slideChange: function () {
+            _this.oldPictureSwiperIndex = this.activeIndex;
+          },
+        }
       });
     },
   },
