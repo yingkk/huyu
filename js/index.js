@@ -942,7 +942,7 @@ new Vue({
       this.musicSwiper = new Swiper(".menu3 .music", {
         spaceBetween: 10,
         slidesPerView: 6,
-        // centeredSlides: true,
+        centeredSlides: true,
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
@@ -964,6 +964,7 @@ new Vue({
       this.oldPictureSwiper = new Swiper(".menu3 .old-pic", {
         spaceBetween: 30,
         slidesPerView: 3,
+        centeredSlides: true,
         observer: true,
         observeParents: true,
         observeSlideChildren: true,

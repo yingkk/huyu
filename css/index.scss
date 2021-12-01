@@ -390,8 +390,8 @@
           font-weight: 500;
           font-size: 1.4815vh;
           .lyric-text-inner {
-            -webkit-animation: 20s rowup linear infinite normal;
-            animation: 20s rowup linear infinite normal;
+            -webkit-animation: 10s rowup linear infinite normal;
+            animation: 10s rowup linear infinite normal;
             position: relative;
           }
         }
@@ -826,8 +826,8 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, -300px, 0);
-    transform: translate3d(0, -300px, 0);
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
   }
 }
 
@@ -837,8 +837,8 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, -300px, 0);
-    transform: translate3d(0, -300px, 0);
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
   }
 }
 

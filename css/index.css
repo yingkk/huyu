@@ -433,8 +433,8 @@
 }
 
 .container .main .menu3 .bottom .lyric-text .lyric-text-inner {
-  -webkit-animation: 20s rowup linear infinite normal;
-  animation: 20s rowup linear infinite normal;
+  -webkit-animation: 10s rowup linear infinite normal;
+  animation: 10s rowup linear infinite normal;
   position: relative;
 }
 
@@ -905,8 +905,8 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, -300px, 0);
-    transform: translate3d(0, -300px, 0);
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
   }
 }
 
@@ -916,8 +916,8 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, -300px, 0);
-    transform: translate3d(0, -300px, 0);
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
   }
 }
 
