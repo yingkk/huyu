@@ -140,8 +140,8 @@
   border: 0.1042vw solid #fff;
   background: #cab99d;
   color: #3a290f;
-  font-size: 1.7708vw;
-  font-weight: 700;
+  font-size: 2.963vh;
+  font-weight: 500;
   text-align: center;
   line-height: 11.2963vh;
   border-radius: 50%;
@@ -269,8 +269,6 @@
 .container .main .menu3 .menu3-inner {
   width: 100%;
   height: calc(100% - 15vh);
-  position: relative;
-  padding: 33vh 0 5vh 0;
   box-sizing: border-box;
   position: relative;
 }
@@ -319,19 +317,22 @@
   font-size: 2.2222vh;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .music {
   width: 84%;
   height: 100%;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music .swiper-slide {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .music .swiper-slide {
   width: 14%;
   height: 100%;
   padding: 1vh 1vw;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music .swiper-slide .music-item {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .music .swiper-slide .music-item {
   height: 22vh;
   padding: 0.6vh 0.4vw;
   box-sizing: border-box;
@@ -342,21 +343,36 @@
   opacity: 0.6;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.music .swiper-slide .active {
-  border: 0.1042vw solid #FFF;
+.container .main .menu3 .menu3-inner .musics .musics-swiper .music .swiper-slide .active {
+  border: 0.1042vw solid #fff;
   opacity: 1;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.old-pic {
+.container .main .menu3 .menu3-inner .musics .musics-swiper .old-pic {
   width: 84%;
   height: 100%;
 }
 
-.container .main .menu3 .menu3-inner .musics .musics-swiper .swiper-container.old-pic .swiper-slide {
-  width: 26%;
+.container .main .menu3 .menu3-inner .musics .musics-swiper .old-pic .swiper-slide {
+  width: 33%;
   height: 100%;
-  padding: 1vh 1vw;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .old-pic .swiper-slide .img-item {
+  width: 100%;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .old-pic .swiper-slide .active {
+  border: 0.1042vw solid #fff;
+}
+
+.container .main .menu3 .menu3-inner .musics .musics-swiper .old-pic .swiper-slide-active {
+  opacity: 1;
 }
 
 .container .main .menu3 .menu3-inner .options {
@@ -373,6 +389,16 @@
 
 .container .main .menu3 .menu3-inner .options .option-pause-play {
   margin: 0 1.0417vw;
+}
+
+.container .main .menu3 .menu3-inner .current-img {
+  position: absolute;
+  bottom: 34vh;
+  left: 50%;
+  margin-left: -17vw;
+  width: 34vw;
+  height: 38.3333vh;
+  overflow: hidden;
 }
 
 .container .main .menu3 .inner-bg {
@@ -399,9 +425,17 @@
 
 .container .main .menu3 .bottom .lyric-text {
   width: 100%;
+  height: 6vh;
+  overflow: hidden;
   line-height: 3vh;
   font-weight: 500;
   font-size: 1.4815vh;
+}
+
+.container .main .menu3 .bottom .lyric-text .lyric-text-inner {
+  -webkit-animation: 20s rowup linear infinite normal;
+  animation: 20s rowup linear infinite normal;
+  position: relative;
 }
 
 .container .main .menu4 {
@@ -417,6 +451,123 @@
   left: 19vw;
   width: 62vw;
   height: 55vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .main .menu4 .menu4-inner .icons {
+  width: 46%;
+  height: 100%;
+  padding: 2vw 2vh;
+  box-sizing: border-box;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item {
+  position: absolute;
+  width: 6.3542vw;
+  height: 11.2963vh;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item .bubbles {
+  position: absolute;
+  width: 6.3542vw;
+  height: 11.2963vh;
+  display: none;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(2) {
+  right: 0;
+  top: 0;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(3) {
+  left: 50%;
+  top: 50%;
+  margin-left: -5.6481vh;
+  margin-top: -5.6481vh;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(4) {
+  left: 0;
+  bottom: 0;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(5) {
+  right: 0;
+  bottom: 0;
+}
+
+.container .main .menu4 .menu4-inner .finshed {
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  width: 50vw;
+  height: 43vh;
+  line-height: 43vh;
+  font-size: 3.7037vh;
+  font-weight: 600;
+  margin-left: -25vw;
+  background: #915811;
+  color: #FFF;
+  text-align: center;
+}
+
+.container .main .menu4 .levels {
+  position: absolute;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+}
+
+.container .main .menu4 .levels .level-item {
+  position: absolute;
+  bottom: 0;
+  width: 6.3542vw;
+  height: 11.2963vh;
+  border: 0.1042vw solid #fff;
+  background: #cab99d;
+  color: #3a290f;
+  font-size: 2.963vh;
+  font-weight: 500;
+  text-align: center;
+  line-height: 11.2963vh;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.container .main .menu4 .levels .active {
+  background: #c55f5c;
+}
+
+.container .main .menu4 .levels .level-item:nth-child(1) {
+  left: 20vw;
+}
+
+.container .main .menu4 .levels .level-item:nth-child(2) {
+  left: 31vw;
+}
+
+.container .main .menu4 .levels .level-item:nth-child(3) {
+  left: 42vw;
+}
+
+.container .main .menu4 .levels .level-item:nth-child(4) {
+  left: 53vw;
+}
+
+.container .main .menu4 .levels .level-item:nth-child(5) {
+  left: 64vw;
 }
 
 .container .main .enter {
@@ -739,4 +890,26 @@
 .menu3 .swiper-button-next.swiper-button-disabled {
   cursor: auto;
   pointer-events: all;
+}
+
+@-webkit-keyframes rowup {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -300px, 0);
+    transform: translate3d(0, -300px, 0);
+  }
+}
+
+@keyframes rowup {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -300px, 0);
+    transform: translate3d(0, -300px, 0);
+  }
 }

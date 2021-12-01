@@ -113,45 +113,54 @@
                             <img src="./imgs/pan_next.png" alt="">
                         </div>
                     </div>
+
+                    <div class="current-img" v-show="activeTabIndex">
+                        <img :src="oldPictureData[oldPictureSwiperIndex]" alt="">
+                    </div>
                     <div class="musics">
                         <div class="tab">
                             <span :class="['tab-item', activeTabIndex === index ? 'active': '']"
-                                v-for="(item, index) in tabs" @click="handleClickTab(index)">{{ item }}</span>
+                                v-for="(item, index) in tabs" @click="handleClickTab(index)">{{ item
+                                }}</span>
                         </div>
-                        <div class="musics-swiper">
-                            <template v-if="!activeTabIndex">
-                                <div class="swiper-container music">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide" v-for="(item, index) in tabData['0']">
-                                            <span
-                                                :class="['music-item', musicSwiperIndex === index ? 'active': '']">{{item.title}}</span>
-                                        </div>
+                        <div class="musics-swiper" v-show="!activeTabIndex">
+                            <div class="swiper-container music">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="(item, index) in musicData">
+                                        <span
+                                            :class="['music-item', musicSwiperIndex === index ? 'active': '']">{{item.title}}</span>
                                     </div>
                                 </div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </template>
-                            <template v-else>
-                                <div class="swiper-container old-pic">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide" v-for="(item, index) in tabData['1']">
-                                            <img :src="item" />
-                                        </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+
+                        <div class="musics-swiper" v-show="activeTabIndex">
+                            <div class="swiper-container old-pic">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="(item, index) in oldPictureData">
+                                        <img :class="['img-item', oldPictureSwiperIndex === index? 'active': '']"
+                                            :src="item" />
                                     </div>
                                 </div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </template>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
                     </div>
                 </div>
                 <div class="bottom" v-if="!activeTabIndex">
                     <div class="lyric-name">
-                        {{ tabData['0'][musicSwiperIndex].title}}
+                        {{ musicData[musicSwiperIndex].title}}
                     </div>
-                    <p class="lyric-text">
-                        {{ tabData['0'][musicSwiperIndex].lyric}}
-                    </p>
+                    <div class="lyric-text">
+                        <div class="lyric-text-inner">
+                            <p v-for="(p, index) in musicData[musicSwiperIndex].lyric">
+                                {{p}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="back">
                     <img src="./imgs/back.png" alt="返回">
@@ -160,7 +169,37 @@
 
             <div class="menu4" v-show="isEnter && activeMenuIndex === 3">
                 <div class="menu4-inner">
-
+                    <div class="icons">
+                        <div class="icons-inner" v-if="currentIcons.length">
+                            <div class="icon-item" v-for="(item, index) in currentIcons[0]">
+                                <img :id="activeCategoryIndex+'_'+ index+'_left'" :src="item" draggable="true"
+                                    @dragstart="handleDrag(event)" @dragover="handleDragOver(event)"
+                                    @drop="handleDrop(event)">
+                                <div class="bubbles">
+                                    <img src="./imgs/right.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="icons">
+                        <div class="icons-inner" v-if="currentIcons.length">
+                            <div class="icon-item" v-for="(item, index) in currentIcons[1]">
+                                <img :src="item" :id="activeCategoryIndex+'_'+ index+'_right'" draggable="true"
+                                    @dragstart="handleDrag(event)" @dragover="handleDragOver(event)"
+                                    @drop="handleDrop(event)">
+                                <div class="bubbles">
+                                    <img src="./imgs/right.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="finshed" v-if="isFinish">恭喜你过关了！</div>
+                </div>
+                <div class="levels">
+                    <div :class="['level-item', index === activeCategoryIndex ? 'active': '']"
+                        v-for="(item, index) in categorys" @click="handleClickCategory(index)">
+                        {{ item }}{{ isFinish}}
+                    </div>
                 </div>
                 <div class="back">
                     <img src="./imgs/back.png" alt="返回">

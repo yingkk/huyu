@@ -7,8 +7,8 @@ new Vue({
       // 方言
       dialectSwiper: null,
       activeLevelIndex: 0,
-      dialects: {
-        0: [
+      dialects: [
+        [
           {
             title: "今天",
             pinyin: "Jing Tian",
@@ -120,7 +120,7 @@ new Vue({
             ],
           },
         ],
-        1: [
+        [
           {
             title: "AA制",
             pinyin: "AA Zhi",
@@ -237,7 +237,7 @@ new Vue({
             ],
           },
         ],
-        2: [
+        [
           {
             title: "伊老坍板格",
             pinyin: "Yi Lao Tan Ban Ge",
@@ -353,7 +353,7 @@ new Vue({
             ],
           },
         ],
-        3: [
+        [
           {
             title: "麦克麦克",
             pinyin: "Mai Ke Mai Ke",
@@ -456,7 +456,7 @@ new Vue({
             ],
           },
         ],
-      },
+      ],
       currentDialects: [],
       dialectSelectedOption: null,
       dialectSelectedIndex: null,
@@ -543,105 +543,287 @@ new Vue({
       //童谣
       activeTabIndex: 0,
       tabs: ["沪语童谣", "沪语老照片"],
-      tabData: {
-        0: [
-          {
-            title: "《小八腊子开会了》",
-            audio: "",
-            lyric:
-              "落雨了，打烊啦，小八腊子开会了，开会了！落雨了，打烊了，小八腊子开会了。 落雨了，打烊了，小八腊子开会了。落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-          {
-            title: "《摇啊摇！摇到外婆桥》",
-            audio: "",
-            lyric:
-              "摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥摇啊摇！摇到外婆桥。",
-          },
-        ],
-        1: [
-          "./imgs/pic_1.png",
-          "./imgs/pic_2.png",
-          "./imgs/pic_3.png",
-          "./imgs/pic_4.png",
-          "./imgs/pic_5.png",
-          "./imgs/pic_6.png",
-          "./imgs/pic_7.png",
-          "./imgs/pic_8.png",
-          "./imgs/pic_9.png",
-          "./imgs/pic_10.png",
-          "./imgs/pic_11.png",
-          "./imgs/pic_12.png",
-          "./imgs/pic_13.png",
-          "./imgs/pic_14.png",
-          "./imgs/pic_15.png",
-          "./imgs/pic_16.png",
-          "./imgs/pic_17.png",
-          "./imgs/pic_18.png",
-          "./imgs/pic_19.png",
-          "./imgs/pic_20.png",
-          "./imgs/pic_21.png",
-          "./imgs/pic_22.png",
-          "./imgs/pic_23.png",
-          "./imgs/pic_24.png",
-          "./imgs/pic_25.png",
-          "./imgs/pic_26.png",
-          "./imgs/pic_27.png",
-          "./imgs/pic_28.png",
-          "./imgs/pic_29.png",
-          "./imgs/pic_30.png",
-          "./imgs/pic_31.png",
-          "./imgs/pic_32.png",
-          "./imgs/pic_33.png",
-          "./imgs/pic_34.png",
-          "./imgs/pic_35.png",
-          "./imgs/pic_36.png",
-          "./imgs/pic_37.png",
-        ],
-      },
+      musicData: [
+        {
+          title: "《小八腊子开会了》",
+          audio: "",
+          lyric: [
+            "落雨啦，打烊啦，小八腊子开会了，小八腊子开会了，开会了！",
+            "落雨了，打烊了，小八腊子开会了。",
+            "落雨了，打烊了，小八腊子开会了。",
+            "落雨啦，打烊啦，落雨啦，打烊啦，落雨啦，打烊啦，小八腊子开会了。",
+            "喂，喂，侬姓啥？我姓黄。啥个黄？草头黄。啥个草？青草。啥个青？碧历青。啥个碧？毛笔。啥个毛？三毛。啥个三？高山。啥个高？年糕。啥个年？ 新年。大家拜个年！",
+            "哆来咪，就是你；哆来啦，就是他；哆来咪西拉，就是你和他，就是你和他。",
+            "落雨啦，打烊啦，小八腊子开会了，小八腊子开会了，小八腊子开会了！啦啦啦！",
+          ],
+        },
+        {
+          title: "《摇啊摇！摇到外婆桥》",
+          audio: "",
+          lyric: [
+            "摇啊摇，摇啊摇，摇到外婆桥，摇啊摇，摇啊摇，摇到外婆桥，外婆叫我好宝宝，一只馒头一块糕。",
+            "摇啊摇，摇啊摇，摇到外婆桥，摇啊摇，摇啊摇，摇到外婆桥，外婆叫我好宝宝，一只馒头一块糕。",
+            "插秧船真灵巧，外婆见了末嘻嘻啊笑,坐辣隔板插秧苗，十天八朝末勿伸腰,",
+            "插秧船真灵巧，外婆见了末嘻嘻啊笑,秧苗装进小船艄，颗颗秧苗末开心笑。",
+            "摇啊摇，摇到外婆桥，外婆叫我好宝宝，外婆叫我好宝宝。伊哎。",
+          ],
+        },
+        {
+          title: "《啋冬啋》",
+          audio: "",
+          lyric: [
+            "啋冬里啋，乒令乓冷气，啋冬里啋来，乒令乓冷气！我呀出把剪刀，我呀出块石头，剪刀砸石头，败呀败下来。",
+            "乒令乓冷啋冬啋，乒令乓冷啋冬啋，啋呀冬里啋。侬来啋，（我来啋，）侬来啋呀，我来啋，啋冬里啋！啋！",
+            "啋冬里啋，乒令乓冷气，啋冬里啋来，乒令乓冷气！我呀出块石头，我呀出块绢头，绢头包石头，凯歌响起来。",
+            "乒令乓冷啋冬啋，乒令乓冷啋冬啋，啋呀冬里啋。侬来啋，（我来啋，）侬来啋呀，我来啋，啋冬里啋！啋！",
+          ],
+        },
+        {
+          title: "《酱油蘸鸡萝卜烧蹄箫》",
+          audio: "",
+          lyric: [
+            "酱油蘸鸡，萝卜烧蹄髈，肉丝清炒炒，十锦两面黄，糖醋小排，红烧狮子头。红烧狮子头。",
+            "酱油蘸鸡，萝卜烧蹄髈，肉丝清炒炒，十锦两面黄，糖醋小排，红烧狮子头。",
+            "萝卜烧蹄髈，糖醋小排，红烧蹄髈。",
+            "少吃身体健康，多吃身体发胖。少吃身体健康，多吃身体发胖。伲要健康，勿要发胖。哈哈…… ",
+            "嗨 嗨。",
+          ],
+        },
+        {
+          title: "《笃笃笃，卖糖粥》",
+          audio: "",
+          lyric: [
+            "笃笃笃，卖糖粥，三斤胡桃四斤壳，吃侬个肉，还侬个壳。张家老伯伯，问侬讨只小花狗汪汪。",
+            "笃笃笃，卖糖粥，三斤胡桃四斤壳，吃侬个肉，还侬个壳。张家老伯伯，问侬讨只小花狗汪汪。",
+            "小弟弟小妹妹跑开点，敲碎玻璃老价钿，嗨嗨嗨哈哈哈，敲碎玻璃老价钿。",
+            "小弟弟，（小呀小弟弟呀，）小妹妹，（小呀小妹妹呀，）敲碎玻璃老价钿。钿。",
+            "小弟弟小妹妹跑开点，敲碎玻璃老价钿，嗨嗨嗨哈哈哈，敲碎玻璃老价钿。",
+            "小弟弟，（小呀小弟弟呀，）小妹妹，（小呀小妹妹呀，）敲碎玻璃老价钿。钿。",
+          ],
+        },
+        {
+          title: "《小皮球》",
+          audio: "",
+          lyric: [
+            "小皮球，小小篮，落地开花二十一，二六二七二八二九三十一，三六三七三八三九四十一，",
+            "四六四七四八四九五十一，五六五七五八五九六十一，六六六七六八六九七十一，七六七七七八七九八十一，八六八七八八八九就十一，九六九七九八九九一百一。",
+            "小小皮球，小小篮，转转花头开心来。",
+            "乒乓球乒乒乓，呼啦圈转转转。",
+            "乒乓球乒乒乓，呼啦圈转转转。",
+            "乒乓球乒乒乓，呼啦圈转转转。",
+            "乒乓球乒乒乓，呼啦圈转转转。",
+            "呼啦圈，（呼啦圈，呼啦圈）乒乓球，（乒乓球，乒乓球，）乒呀乒乓球，乒乒乓。",
+          ],
+        },
+        {
+          title: "《童谣朗读(一)》",
+          audio: "",
+          lyric: [
+            "（一）",
+            "嘟嘟飞，虫虫飞，拍拍小手虫虫飞；嘟嘟飞，虫虫飞，扇扇翅膀虫虫飞；",
+            "嘟嘟飞，虫虫飞，翻个跟斗虫虫飞；嘟嘟飞，虫虫飞，恭喜拜年虫虫飞。",
+            "（二）",
+            "一歇哭，一歇笑，两只眼睛开大炮。一开开到城隍庙，城隍老爷哈哈笑。",
+            "（三）",
+            "三三三，阿拉侪是木头人，勿许讲话勿许动，还有一个勿许笑。",
+            "（四）",
+            "二三月，放风筝，放得高，大家吃块糕，放得低，大家吃眼烂污泥。",
+            "（五）",
+            "一箩麦，二箩麦，三箩开手拍大麦，劈劈拍，劈劈拍。",
+            "（六）",
+            "小老虫，上灯台，偷油吃，勿下来，骨落骨落滚下来。",
+            "（七）",
+            "金锁，银锁，轧辣辣吱一锁，金锁，银锁，轧辣辣吱一锁，金锁，银锁，轧辣辣吱一锁，锁牢伊！",
+            "（八）",
+            "炒炒炒，炒黄豆，炒好黄豆翻跟头。炒炒炒，炒黄豆，炒好黄豆翻跟头。",
+            "（九）",
+            "冬瓜皮，西瓜皮，小姑娘赤膊老面皮。",
+            "（十）",
+            "啷啷啷，啷啷啷，骑马到松江，松江老虎叫，别转马头朝北跑。朝北跑。",
+            "（十一）",
+            "本来要打千千万万记，现在辰光来勿及，马马虎虎打十记。一、二、三、四、五， 六、七、八、九、十！",
+          ],
+        },
+        {
+          title: "《一根紫竹直苗苗》",
+          audio: "",
+          lyric: [
+            "一根呀紫竹直呀直苗苗，早早扯起豆腐标，啊呀豆腐末扦销销，（啊呀豆腐末扦销销呀，）",
+            "啊呀也好生吃也好做汤烧。问娇娇呀，迭板豆腐好勿好？问娇娇呀，迭板豆腐好勿好？",
+            "一根呀紫竹直呀直苗苗，早早扯起豆腐标，啊呀豆腐末扦销销，啊呀豆腐末扦销销，也好生吃也好做汤烧。啊呀呀也好做汤烧。问娇娇，迭板豆腐好勿好？问娇娇，迭板豆腐好勿好？",
+            "一呀根紫竹，一根紫竹直苗苗，早早扯起，早早扯起豆腐标，豆腐末扦销销，（啊呀豆腐末扦销销呀，）啊呀也好生吃也好做汤烧。问娇娇呀，迭板豆腐好勿好？问娇娇呀，迭板豆腐好勿好？",
+            "一根呀紫竹直呀直苗苗，早早扯起豆腐标，啊呀豆腐末扦销销，啊呀豆腐末扦销销，也好生吃也好做汤烧。啊呀呀也好做汤烧。问娇娇，迭板豆腐好勿好？问娇娇，迭板豆腐好勿好？问娇娇，迭板豆腐好勿好？",
+          ],
+        },
+        {
+          title: "《飞过太湖艄》",
+          audio: "",
+          lyric: [
+            "啥个花开来黑良心哎，哟喂啥个花开来满天星？啥个花开来当饭吃嗫，啥个花开来当点心？",
+            "蚕豆花开来黑良心哎，哟喂绿肥花开来满天星，小麦花开来当饭吃嗫，南瓜花开来当点心。",
+            "啥个鸟飞来末节节高哎，哟喂啥个鸟飞来像双刀？啥个鸟飞进青草里嗫，啥个鸟飞过太湖艄。",
+            "叫天子飞来末节节高，燕子末飞来像双刀，野鸟末飞进青草里，野鸭子飞过太湖艄。",
+            "蚕豆花开来末黑良心，绿肥花开来满天星，小麦花开来当饭吃，南瓜花开来末当心点。",
+            "叫天子飞来末节节高，燕子末飞来像双刀，野鸟末飞进青草里，野鸭子飞过太湖艄。哎",
+            "山歌好唱口难开，哎樱桃末好吃树难栽，白米饭好吃田难种啊，鲜鱼汤好吃网难扳。喂喂哟！",
+          ],
+        },
+        {
+          title: "《说不尽的好风光》",
+          audio: "",
+          lyric: [
+            "上有呀天堂，下呀有苏杭。杭州西湖，苏州有山塘，哎呀两处好风光。",
+            "哎呀哎哎呀哎呀，两处好风光。正月里梅花开，哎哎呀，二月里玉兰放，哎呀，三月里桃花",
+            "满园尽开放。四月里蔷薇花开牡丹花开斗芬芳。",
+            "上有呀天堂，下呀有苏杭。杭州西湖，苏州有山塘，哎呀两处好风光。",
+            "哎呀哎哎呀哎呀，两处好风光。",
+          ],
+        },
+        {
+          title: "《凤阳花鼓》",
+          audio: "",
+          lyric: [
+            "今日的锣，明日的鼓哎，啥人叫我来打花鼓啊，别样的花鼓都不会唱，我要唱的一支凤阳花鼓啊，凤呀凤阳花鼓依呀依呀嗨。刺冬刺冬嘭冬嘭，刺冬刺冬嘭冬嘭，刺冬刺冬嘭，冬冬冬嘭嘭，冬嘭！",
+            "今日的锣，明日的鼓哎，啥人叫我来打花鼓啊，别样的花鼓都不会唱，我要唱的一支凤阳花鼓啊，凤呀凤阳花鼓依呀依呀嗨。刺冬刺冬嘭冬嘭，刺冬刺冬嘭冬嘭，刺冬刺冬嘭，冬冬冬嘭嘭，冬嘭！",
+            "今日的锣，明日的鼓哎，啥人叫我来打花鼓啊，别样的花鼓都不会唱，我要唱的一支凤阳花鼓啊，凤呀凤阳花鼓依呀依呀嗨。刺冬刺冬嘭冬嘭，刺冬刺冬嘭冬嘭，刺冬刺冬嘭，冬冬冬嘭嘭，冬嘭！哟嗨嗨！",
+          ],
+        },
+        {
+          title: "《童谣朗读(二)》",
+          audio: "",
+          lyric: [
+            "（一）",
+            "哎呦哇，做啥啦，蚊子咬我呀，快点上来呀，上来做啥呀，上来白相呀。",
+            "（二）",
+            "排排坐，吃果果，侬一个，我一个，还给妹妹留一个。",
+            "（三）",
+            "背背驮，买猪猡，开年卖脱侬。勿肯格！",
+            "（四）",
+            "哩吱哩吱轿子，轿子轿子哩吱，抬轿子，抬轿子，一抬抬到城隍庙，叭拉搭，掼一跤，拾着一只大元宝。",
+            "（五）",
+            "新剃头，要打头，勿打三记触霉头。一，二，三！",
+            "（六）",
+            "山上有只老虎，老虎关辣笼子里，笼子坏脱，老虎逃脱，逃到南京，买包糖精，摆辣水里浸一浸，咪唏咪唏拉胡琴。",
+            "（七）",
+            "两只老虎，两只老虎，一只呒没尾巴，一只呒没耳朵，真奇怪，真奇怪！",
+            "（八）",
+            "赖学精，白相精。书包掼辣屋头顶，看见先生难为情。三十二只钉鞋钉，钉死钉杀钉勿进。",
+            "（九）",
+            "弟弟倦了，眼睛小了，眼睛小，眼睛小，要睏觉，要睏觉。姆妈坐辣摇篮边，摇篮摇啊摇，盎盎我的小宝宝，安安稳稳睏一觉。今朝睏得好，明朝起得早，花园里去采葡萄。",
+            "（十）",
+            "长脚鹭鸶敲洋钉，敲来敲去敲勿进，原来是只螺丝钉。",
+            "（十一）",
+            "山浪有只庙，庙里有只缸，缸里有只碗，碗里有只蛋，蛋里有个小和尚，嗯牙嗯牙要吃绿豆汤。",
+            "（十二）",
+            "吃橘子，剥橘壳，橘壳掼辣壁角落。勿吃橘子，勿剥壳，橘壳勿必掼辣壁角落。",
+            "（十三）",
+            "小星星，亮晶晶，青石板浪钉铜钉。小星星，亮晶晶，伊拉对侬眨眼睛。",
+            "（十四）",
+            "勾勾，还还，一百年，勿许赖。勾勾，还还，一百年，勿许赖。勾勾，还还，一百年，勿许赖。",
+          ],
+        },
+        {
+          title: "《春晓》",
+          audio: "",
+          lyric: [
+            "春眠不觉晓，处处闻啼鸟，夜来风雨声，花落知多少？夜来风雨声，花落知多少？花落知多少？",
+            "春眠不觉晓，处处闻啼鸟，夜来风雨声，花落知多少？夜来风雨声，花落知多少？花落知多少？",
+            "春眠（春眠）不觉晓（不觉晓），处处闻啼鸟，蝈蝈，（蝈蝈，）蝈蝈，（蝈蝈，）夜来（夜来）风雨声，风雨声，花落知多少？夜来风雨声，花落知多少？花落知多少？",
+            "春眠不觉晓，处处闻啼鸟，夜来风雨声，花落知多少？夜来风雨声，花落知多少？花落知多少？花落知多少？",
+          ],
+        },
+        {
+          title: "《山居秋暝》",
+          audio: "",
+          lyric: [
+            "空山新雨后，天气晚来秋。空山新雨后，天气晚来秋。明月松间照，清泉石上流。竹喧归浣女，莲动下渔舟。随意春芳歇，王孙自可留。",
+            "啦啦啦啦啦，啦啦啦啦啦啦，啦啦啦啦啦，啦啦啦啦啦啦，啦啦啦啦啦，啦啦啦啦啦啦，啦啦啦啦啦啦啦啦，啦啦啦啦啦。",
+            "空山新雨后，天气晚来秋。明月松间照，清泉石上流。竹喧归浣女，莲动下渔舟。随意春芳歇，王孙自可留。",
+            "空山新雨新雨后，天气晚来晚来秋。明月松间松间照，清泉石上石上流。",
+            "空山新雨后，天气晚来秋。明月松间照，清泉石上流。竹喧归浣女，莲动下渔舟。随意春芳歇，王孙自可留。王孙自可留。依哎！",
+          ],
+        },
+        {
+          title: "《游子吟》",
+          audio: "",
+          lyric: [
+            "慈母手中线，手中线，游子身上衣，身上衣。临行密密缝，意恐迟迟归。临行密密缝，意恐迟迟归。谁言寸草心，报得三春晖。谁言寸草心，报得三春晖。报得三春晖。",
+            "慈母手中线，手中线，游子身上衣，身上衣。临行密密缝，意恐迟迟归。临行密密缝，意恐迟迟归。谁言寸草心，报得三春晖。谁言寸草心，报得三春晖，三春晖。",
+          ],
+        },
+      ],
+      oldPictureData: [
+        "./imgs/pic_1.png",
+        "./imgs/pic_2.png",
+        "./imgs/pic_3.png",
+        "./imgs/pic_4.png",
+        "./imgs/pic_5.png",
+        "./imgs/pic_6.png",
+        "./imgs/pic_7.png",
+        "./imgs/pic_8.png",
+        "./imgs/pic_9.png",
+        "./imgs/pic_10.png",
+        "./imgs/pic_11.png",
+        "./imgs/pic_12.png",
+        "./imgs/pic_13.png",
+        "./imgs/pic_14.png",
+        "./imgs/pic_15.png",
+        "./imgs/pic_16.png",
+        "./imgs/pic_17.png",
+        "./imgs/pic_18.png",
+        "./imgs/pic_19.png",
+        "./imgs/pic_20.png",
+        "./imgs/pic_21.png",
+        "./imgs/pic_22.png",
+        "./imgs/pic_23.png",
+        "./imgs/pic_24.png",
+        "./imgs/pic_25.png",
+        "./imgs/pic_26.png",
+        "./imgs/pic_27.png",
+        "./imgs/pic_28.png",
+        "./imgs/pic_29.png",
+        "./imgs/pic_30.png",
+        "./imgs/pic_31.png",
+        "./imgs/pic_32.png",
+        "./imgs/pic_33.png",
+        "./imgs/pic_34.png",
+        "./imgs/pic_35.png",
+        "./imgs/pic_36.png",
+        "./imgs/pic_37.png",
+      ],
       musicSwiper: null,
       musicSwiperIndex: 0,
       oldPictureSwiper: null,
       oldPictureSwiperIndex: 0,
+
+      //洋泾浜话
+      categorys: ["酒类", "食品类", "交通类", "乐器类", "生活类"],
+      activeCategoryIndex: 0,
+      iconData: [
+        [
+          [
+            "./imgs/group1_1_left.png",
+            "./imgs/group1_2_left.png",
+            "./imgs/group1_3_left.png",
+            "./imgs/group1_4_left.png",
+            "./imgs/group1_5_left.png",
+          ],
+          [
+            "./imgs/group1_1_right.png",
+            "./imgs/group1_2_right.png",
+            "./imgs/group1_3_right.png",
+            "./imgs/group1_4_right.png",
+            "./imgs/group1_5_right.png",
+          ],
+        ],
+      ],
+      currentIcons: [],
+      answerOfCurrentIcons: [],
+      isFinish: false,
     };
   },
   created: function () {
-    // this.currentMusics = this.tabData["0"];
+    this.currentIcons = this.iconData[this.activeCategoryIndex];
   },
   methods: {
     handleEnter: function () {
@@ -672,14 +854,55 @@ new Vue({
       this.currentDialects = this.dialects[index];
       this.dialectSwiper.slideTo(0);
     },
+    handleClickCategory: function (index) {
+      this.isFinish = false;
+      this.activeCategoryIndex = index;
+      this.currentIcons = this.iconData[index] || [];
+    },
     handleBackToIndex: function () {
       window.location.href = "../index.html";
     },
     handleClickTab: function (index) {
       this.activeTabIndex = index;
-      if (this.activeTabIndex) {
-        this.initOldPictureSwiper();
+      this.activeTabIndex
+        ? this.initOldPictureSwiper()
+        : this.initMusicSwiper();
+    },
+    handleDrag: function (e) {
+      e.dataTransfer.setData("id", e.currentTarget.id);
+    },
+    handleDragOver: function (e) {
+      e.preventDefault();
+    },
+    handleDrop: function (e) {
+      e.preventDefault();
+      let _this = this;
+      const dragElementId = e.dataTransfer.getData("id");
+      const targetId = e.currentTarget.id;
+      const flag = this.dealElementId(dragElementId, targetId);
+      if (!flag) {
+        return;
       }
+      this.answerOfCurrentIcons.push(dragElementId);
+      $(".icons-inner #" + dragElementId).hide();
+      $(".icons-inner #" + targetId).hide();
+      $(".icons-inner #" + targetId)
+        .next()
+        .fadeIn(1000, function () {
+          $(".icons-inner #" + targetId)
+            .next()
+            .fadeOut(500);
+          _this.isFinish = !!(
+            _this.answerOfCurrentIcons.length === _this.currentIcons[0].length
+          );
+          _this.currentIcons = _this.isFinish ? [] : _this.currentIcons;
+        });
+    },
+
+    dealElementId(originId, targetId) {
+      let _originId = originId.match(/(\S*)_/)[1];
+      let _targetId = targetId.match(/(\S*)_/)[1];
+      return _originId === _targetId;
     },
     initDialectSwiper() {
       let _this = this;
@@ -714,12 +937,14 @@ new Vue({
     initMusicSwiper: function () {
       let _this = this;
       this.musicSwiper = new Swiper(".menu3 .music", {
-        slidesPerView: 6,
         spaceBetween: 10,
-        centeredSlides: true,
+        slidesPerView: 6,
+        // centeredSlides: true,
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
+        freeMode: true,
+        watchSlidesProgress: true,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -734,7 +959,7 @@ new Vue({
     initOldPictureSwiper: function () {
       let _this = this;
       this.oldPictureSwiper = new Swiper(".menu3 .old-pic", {
-        spaceBetween: 10,
+        spaceBetween: 30,
         slidesPerView: 3,
         observer: true,
         observeParents: true,
@@ -749,7 +974,7 @@ new Vue({
           slideChange: function () {
             _this.oldPictureSwiperIndex = this.activeIndex;
           },
-        }
+        },
       });
     },
   },
