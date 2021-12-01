@@ -63,7 +63,7 @@
                         {{ item }}
                     </div>
                 </div>
-                <div class="back">
+                <div class="back"  @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
             </div>
@@ -86,7 +86,7 @@
                         点击按钮听音频，选择你认为正确的答案
                     </div>
                 </div>
-                <div class="back">
+                <div class="back"  @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
                 <div class="bottom">
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="back">
+                <div class="back"  @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
             </div>
@@ -193,15 +193,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="finshed" v-if="isFinish">恭喜你过关了！</div>
+                    <div class="passed" v-if="isPassed">恭喜你过关了！</div>
                 </div>
                 <div class="levels">
                     <div :class="['level-item', index === activeCategoryIndex ? 'active': '']"
                         v-for="(item, index) in categorys" @click="handleClickCategory(index)">
-                        {{ item }}{{ isFinish}}
+                        {{ item }}
                     </div>
                 </div>
-                <div class="back">
+                <div class="back" @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
             </div>

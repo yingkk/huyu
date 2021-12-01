@@ -4,9 +4,11 @@ new Vue({
     return {
       isEnter: false,
       activeMenuIndex: -1,
+      menus: ["上海方言", "沪语听译", "沪语童谣", "洋泾浜话"],
       // 方言
       dialectSwiper: null,
       activeLevelIndex: 0,
+      levels: ["初级", "中级", "高级", "终极"],
       dialects: [
         [
           {
@@ -461,8 +463,6 @@ new Vue({
       dialectSelectedOption: null,
       dialectSelectedIndex: null,
       dialectSelectFlag: false, //是否已选择
-      menus: ["上海方言", "沪语听译", "沪语童谣", "洋泾浜话"],
-      levels: ["初级", "中级", "高级", "终极"],
 
       //听译
       listens: [
@@ -819,15 +819,22 @@ new Vue({
       ],
       currentIcons: [],
       answerOfCurrentIcons: [],
-      isFinish: false,
+      isPassed: false, //通关
     };
   },
   created: function () {
     this.currentIcons = this.iconData[this.activeCategoryIndex];
   },
   methods: {
+    // handleFullScreen: function () {},
     handleEnter: function () {
       this.isEnter = true;
+    },
+    handleBack: function () {
+      this.activeMenuIndex = -1;
+    },
+    handleBackToIndex: function () {
+      window.location.href = "../index.html";
     },
     handleMenu: function (index) {
       this.activeMenuIndex = index;
@@ -842,31 +849,28 @@ new Vue({
         this.initMusicSwiper();
       }
     },
-    handleBack: function () {},
-    handleFullScreen: function () {},
-    handleClickOption: function (index, item) {
-      this.dialectSelectFlag = true;
-      this.dialectSelectedIndex = index;
-      this.dialectSelectedOption = item;
-    },
+
     handleDialectLevel: function (index) {
       this.activeLevelIndex = index;
       this.currentDialects = this.dialects[index];
       this.dialectSwiper.slideTo(0);
     },
-    handleClickCategory: function (index) {
-      this.isFinish = false;
-      this.activeCategoryIndex = index;
-      this.currentIcons = this.iconData[index] || [];
-    },
-    handleBackToIndex: function () {
-      window.location.href = "../index.html";
+    handleClickOption: function (index, item) {
+      this.dialectSelectFlag = true;
+      this.dialectSelectedIndex = index;
+      this.dialectSelectedOption = item;
     },
     handleClickTab: function (index) {
       this.activeTabIndex = index;
       this.activeTabIndex
         ? this.initOldPictureSwiper()
         : this.initMusicSwiper();
+    },
+
+    handleClickCategory: function (index) {
+      this.isPassed = false;
+      this.activeCategoryIndex = index;
+      this.currentIcons = this.iconData[index] || [];
     },
     handleDrag: function (e) {
       e.dataTransfer.setData("id", e.currentTarget.id);
@@ -892,13 +896,12 @@ new Vue({
           $(".icons-inner #" + targetId)
             .next()
             .fadeOut(500);
-          _this.isFinish = !!(
+          _this.isPassed = !!(
             _this.answerOfCurrentIcons.length === _this.currentIcons[0].length
           );
-          _this.currentIcons = _this.isFinish ? [] : _this.currentIcons;
+          _this.currentIcons = _this.isPassed ? [] : _this.currentIcons;
         });
     },
-
     dealElementId(originId, targetId) {
       let _originId = originId.match(/(\S*)_/)[1];
       let _targetId = targetId.match(/(\S*)_/)[1];
