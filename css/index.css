@@ -573,13 +573,13 @@
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(1) {
   left: 0;
   top: 0;
-  animation-delay: 0.2s;
+  animation-duration: 2s;
 }
 
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(2) {
   right: 0;
   top: 0;
-  animation-delay: 0.4s;
+  animation-duration: 3s;
 }
 
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(3) {
@@ -587,19 +587,19 @@
   top: 50%;
   margin-left: -4.0365vw;
   margin-top: -7.1759vh;
-  animation-delay: 0.6s;
+  animation-duration: 3s;
 }
 
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(4) {
   left: 0;
   bottom: 0;
-  animation-delay: 0.7s;
+  animation-duration: 4s;
 }
 
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(5) {
   right: 0;
   bottom: 0;
-  animation-delay: 0.9s;
+  animation-duration: 5s;
 }
 
 .container .main .menu4 .levels {
