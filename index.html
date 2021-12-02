@@ -125,13 +125,11 @@
                         <img src="./imgs/headset.png">
                     </div>
                     <div class="audio-wrap">
-                        <div class="audio-left">
-                            <img src="./imgs/play.png">
+                        <div class="audio-left" @click="handlePlayListen">
+                            <img :src="isListenPlay ? './imgs/pause.png': './imgs/play.png'">
                         </div>
                         <div class="audio-right">
-                            <audio>
-                                <source :src="currentListens[listenSwiperActiveIndex].audio">
-                            </audio>
+                            <audio ref="listen" :src="currentListens[listenSwiperActiveIndex].audio"></audio>
                             <div class="propgress">
                                 <div class="propgress-dot">
                                     <div class="propgress-dot-small"></div>
@@ -150,7 +148,7 @@
                         <div class="option-prev" @click="handlePrevMusic">
                             <img src="./imgs/pan_prev.png">
                         </div>
-                        <div class="option-pause-play"  @click="handlePlayMusic">
+                        <div class="option-pause-play" @click="handlePlayMusic">
                             <img :src="isMusicPlay ? './imgs/pan_pause.png': './imgs/pan_play.png'">
                         </div>
                         <div class="option-next" @click="handleNextMusic">

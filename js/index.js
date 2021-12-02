@@ -678,6 +678,7 @@ new Vue({
       isListenPassed: false, //是否通关
       isListenFinished: false, // 是否答完
       listenSwiperActiveIndex: 0,
+      isListenPlay: false,
 
       //童谣
       activeTabIndex: 0,
@@ -1077,6 +1078,16 @@ new Vue({
       const answers = Object.values(this.answerOfListens);
       const rightNum = answers.filter((t) => t.value).length;
       this.isListenPassed = answers.length === rightNum;
+    },
+    handlePlayListen: function () {
+      const audio = this.$refs.listen;
+      if (audio.paused) {
+        audio.play();
+        this.isListenPlay = true;
+      } else {
+        audio.pause();
+        this.isListenPlay = false;
+      }
     },
     handleClickTab: function (index) {
       this.activeTabIndex = index;
