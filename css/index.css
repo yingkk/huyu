@@ -543,7 +543,7 @@
 .container .main .menu4 .menu4-inner .icons {
   width: 46%;
   height: 100%;
-  padding: 2vw 2vh;
+  padding: 3vw 5vh;
   box-sizing: border-box;
 }
 
@@ -555,16 +555,18 @@
 
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item {
   position: absolute;
-  width: 6.3542vw;
-  height: 11.2963vh;
+  width: 8.0729vw;
+  height: 14.3519vh;
   -webkit-animation: 3s bubbleup linear infinite normal;
   animation: 3s bubbleup linear infinite normal;
 }
 
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item .bubbles {
   position: absolute;
-  width: 6.3542vw;
-  height: 11.2963vh;
+  left: 50%;
+  margin-left: -8.2813vw;
+  width: 16.5625vw;
+  height: 18.9815vh;
   display: none;
 }
 
@@ -583,8 +585,8 @@
 .container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(3) {
   left: 50%;
   top: 50%;
-  margin-left: -5.6481vh;
-  margin-top: -5.6481vh;
+  margin-left: -4.0365vw;
+  margin-top: -7.1759vh;
   animation-delay: 0.6s;
 }
 
