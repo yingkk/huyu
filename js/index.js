@@ -460,85 +460,224 @@ new Vue({
         ],
       ],
       currentDialects: [],
+      answerOfDialects: {},
       dialectSelectedOption: null,
-      dialectSelectedIndex: null,
       dialectSelectFlag: false, //是否已选择
+      isLevelPassed: false, //当前级别是否通关
+      isLevelFinished: false, // 当前级别是否答完
 
       //听译
       listens: [
-        {
-          title: "第一课 问候 情景(一)",
-          audio: "",
-          options: [
-            {
-              key: "A",
-              label:
-                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
-              value: true,
-            },
-            {
-              key: "B",
-              label:
-                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
-              value: false,
-            },
-          ],
-        },
-        {
-          title: "第一课 问候 情景(二)",
-          audio: "",
-          options: [
-            {
-              key: "A",
-              label:
-                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
-              value: true,
-            },
-            {
-              key: "B",
-              label:
-                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
-              value: false,
-            },
-          ],
-        },
-        {
-          title: "第一课 问候 情景(一)",
-          audio: "",
-          options: [
-            {
-              key: "A",
-              label:
-                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
-              value: true,
-            },
-            {
-              key: "B",
-              label:
-                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
-              value: false,
-            },
-          ],
-        },
-        {
-          title: "第二课 在路上 情景(一)",
-          audio: "",
-          options: [
-            {
-              key: "A",
-              label:
-                "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
-              value: true,
-            },
-            {
-              key: "B",
-              label:
-                "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
-              value: false,
-            },
-          ],
-        },
+        [
+          {
+            title: "第一课 问候 情景(一)",
+            audio: "./media/listen1_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
+                value: true,
+              },
+              {
+                key: "B",
+                label:
+                  "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
+                value: false,
+              },
+            ],
+          },
+          {
+            title: "第一课 问候 情景(二)",
+            audio: "./media/listen1_2.mp3",
+            options: [
+              {
+                key: "A",
+                label: "A：爸爸，我回来了。B：这么早就回来了，你吃过了吗？ ",
+                value: true,
+              },
+              {
+                key: "B",
+                label: "A：爸爸，我回来了。B：那我们一起去吃饭吧？",
+                value: false,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第二课 晚上 情景(一)",
+            audio: "./media/listen3_2.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "B：这么早就回来了，你吃过了吗？ A：哥哥呢？ B：他出去了。",
+                value: true,
+              },
+              {
+                key: "B",
+                label:
+                  "B：这么早就回来了，你吃过了吗？ A：没吃过了，已知在公司加班呢！",
+                value: false,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第三课 问路 情景(一)",
+            audio: "./media/listen3_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "甲：火车站在什么地方？怎么走？  乙：穿过马路，一直向前走。到前面第一条横马路左拐。",
+                value: true,
+              },
+              {
+                key: "B",
+                label:
+                  "甲：地铁站在什么地方？怎么走？ 乙：穿过马路，一直向前走。到前面第一条横马路右拐。",
+                value: false,
+              },
+            ],
+          },
+        ],
+        // [
+        //   {
+        //     title: "第四课 看病 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // [
+        //   {
+        //     title: "第五课 住酒店 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // [
+        //   {
+        //     title: "第六课 打电话 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // [
+        //   {
+        //     title: "第七课 午餐 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // [
+        //   {
+        //     title: "第八课 观光 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // [
+        //   {
+        //     title: "第九课 购物 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // [
+        //   {
+        //     title: "第十课 告别送行 情景(一)",
+        //     audio: "",
+        //     options: [
+        //       {
+        //         key: "A",
+        //         label: "",
+        //         value: true,
+        //       },
+        //       {
+        //         key: "B",
+        //         label: "",
+        //         value: false,
+        //       },
+        //     ],
+        //   },
+        // ],
       ],
+      currentListens: [],
+      answerOfListens: {},
+      listenSelectedOption: null,
+      listenSelectFlag: false, //是否已选择
+      isListenPassed: false, //是否通关
+      isListenFinished: false, // 是否答完
+      listenSwiperActiveIndex: 0,
 
       //童谣
       activeTabIndex: 0,
@@ -546,7 +685,7 @@ new Vue({
       musicData: [
         {
           title: "《小八腊子开会了》",
-          audio: "",
+          audio: "./media/music_1.mp3",
           lyric: [
             "落雨啦，打烊啦，小八腊子开会了，小八腊子开会了，开会了！",
             "落雨了，打烊了，小八腊子开会了。",
@@ -559,7 +698,7 @@ new Vue({
         },
         {
           title: "《摇啊摇！摇到外婆桥》",
-          audio: "",
+          audio: "./media/music_2.mp3",
           lyric: [
             "摇啊摇，摇啊摇，摇到外婆桥，摇啊摇，摇啊摇，摇到外婆桥，外婆叫我好宝宝，一只馒头一块糕。",
             "摇啊摇，摇啊摇，摇到外婆桥，摇啊摇，摇啊摇，摇到外婆桥，外婆叫我好宝宝，一只馒头一块糕。",
@@ -570,7 +709,7 @@ new Vue({
         },
         {
           title: "《啋冬啋》",
-          audio: "",
+          audio: "./media/music_3.mp3",
           lyric: [
             "啋冬里啋，乒令乓冷气，啋冬里啋来，乒令乓冷气！我呀出把剪刀，我呀出块石头，剪刀砸石头，败呀败下来。",
             "乒令乓冷啋冬啋，乒令乓冷啋冬啋，啋呀冬里啋。侬来啋，（我来啋，）侬来啋呀，我来啋，啋冬里啋！啋！",
@@ -580,7 +719,7 @@ new Vue({
         },
         {
           title: "《酱油蘸鸡萝卜烧蹄箫》",
-          audio: "",
+          audio: "./media/music_4.mp3",
           lyric: [
             "酱油蘸鸡，萝卜烧蹄髈，肉丝清炒炒，十锦两面黄，糖醋小排，红烧狮子头。红烧狮子头。",
             "酱油蘸鸡，萝卜烧蹄髈，肉丝清炒炒，十锦两面黄，糖醋小排，红烧狮子头。",
@@ -591,7 +730,7 @@ new Vue({
         },
         {
           title: "《笃笃笃，卖糖粥》",
-          audio: "",
+          audio: "./media/music_5.mp3",
           lyric: [
             "笃笃笃，卖糖粥，三斤胡桃四斤壳，吃侬个肉，还侬个壳。张家老伯伯，问侬讨只小花狗汪汪。",
             "笃笃笃，卖糖粥，三斤胡桃四斤壳，吃侬个肉，还侬个壳。张家老伯伯，问侬讨只小花狗汪汪。",
@@ -603,7 +742,7 @@ new Vue({
         },
         {
           title: "《小皮球》",
-          audio: "",
+          audio: "./media/music_6.mp3",
           lyric: [
             "小皮球，小小篮，落地开花二十一，二六二七二八二九三十一，三六三七三八三九四十一，",
             "四六四七四八四九五十一，五六五七五八五九六十一，六六六七六八六九七十一，七六七七七八七九八十一，八六八七八八八九就十一，九六九七九八九九一百一。",
@@ -617,7 +756,7 @@ new Vue({
         },
         {
           title: "《童谣朗读(一)》",
-          audio: "",
+          audio: "./media/music_7.mp3",
           lyric: [
             "（一）",
             "嘟嘟飞，虫虫飞，拍拍小手虫虫飞；嘟嘟飞，虫虫飞，扇扇翅膀虫虫飞；",
@@ -646,7 +785,7 @@ new Vue({
         },
         {
           title: "《一根紫竹直苗苗》",
-          audio: "",
+          audio: "./media/music_8.mp3",
           lyric: [
             "一根呀紫竹直呀直苗苗，早早扯起豆腐标，啊呀豆腐末扦销销，（啊呀豆腐末扦销销呀，）",
             "啊呀也好生吃也好做汤烧。问娇娇呀，迭板豆腐好勿好？问娇娇呀，迭板豆腐好勿好？",
@@ -657,7 +796,7 @@ new Vue({
         },
         {
           title: "《飞过太湖艄》",
-          audio: "",
+          audio: "./media/music_9.mp3",
           lyric: [
             "啥个花开来黑良心哎，哟喂啥个花开来满天星？啥个花开来当饭吃嗫，啥个花开来当点心？",
             "蚕豆花开来黑良心哎，哟喂绿肥花开来满天星，小麦花开来当饭吃嗫，南瓜花开来当点心。",
@@ -670,7 +809,7 @@ new Vue({
         },
         {
           title: "《说不尽的好风光》",
-          audio: "",
+          audio: "./media/music_10.mp3",
           lyric: [
             "上有呀天堂，下呀有苏杭。杭州西湖，苏州有山塘，哎呀两处好风光。",
             "哎呀哎哎呀哎呀，两处好风光。正月里梅花开，哎哎呀，二月里玉兰放，哎呀，三月里桃花",
@@ -680,8 +819,8 @@ new Vue({
           ],
         },
         {
-          title: "《凤阳花鼓》",
-          audio: "",
+          title: "《凤阳花鼓》（小调“花鼓调”）",
+          audio: "./media/music_11.mp3",
           lyric: [
             "今日的锣，明日的鼓哎，啥人叫我来打花鼓啊，别样的花鼓都不会唱，我要唱的一支凤阳花鼓啊，凤呀凤阳花鼓依呀依呀嗨。刺冬刺冬嘭冬嘭，刺冬刺冬嘭冬嘭，刺冬刺冬嘭，冬冬冬嘭嘭，冬嘭！",
             "今日的锣，明日的鼓哎，啥人叫我来打花鼓啊，别样的花鼓都不会唱，我要唱的一支凤阳花鼓啊，凤呀凤阳花鼓依呀依呀嗨。刺冬刺冬嘭冬嘭，刺冬刺冬嘭冬嘭，刺冬刺冬嘭，冬冬冬嘭嘭，冬嘭！",
@@ -690,7 +829,7 @@ new Vue({
         },
         {
           title: "《童谣朗读(二)》",
-          audio: "",
+          audio: "./media/music_12.mp3",
           lyric: [
             "（一）",
             "哎呦哇，做啥啦，蚊子咬我呀，快点上来呀，上来做啥呀，上来白相呀。",
@@ -724,7 +863,7 @@ new Vue({
         },
         {
           title: "《春晓》",
-          audio: "",
+          audio: "./media/music_13.mp3",
           lyric: [
             "春眠不觉晓，处处闻啼鸟，夜来风雨声，花落知多少？夜来风雨声，花落知多少？花落知多少？",
             "春眠不觉晓，处处闻啼鸟，夜来风雨声，花落知多少？夜来风雨声，花落知多少？花落知多少？",
@@ -734,7 +873,7 @@ new Vue({
         },
         {
           title: "《山居秋暝》",
-          audio: "",
+          audio: "./media/music_14.mp3",
           lyric: [
             "空山新雨后，天气晚来秋。空山新雨后，天气晚来秋。明月松间照，清泉石上流。竹喧归浣女，莲动下渔舟。随意春芳歇，王孙自可留。",
             "啦啦啦啦啦，啦啦啦啦啦啦，啦啦啦啦啦，啦啦啦啦啦啦，啦啦啦啦啦，啦啦啦啦啦啦，啦啦啦啦啦啦啦啦，啦啦啦啦啦。",
@@ -745,7 +884,7 @@ new Vue({
         },
         {
           title: "《游子吟》",
-          audio: "",
+          audio: "./media/music_15.mp3",
           lyric: [
             "慈母手中线，手中线，游子身上衣，身上衣。临行密密缝，意恐迟迟归。临行密密缝，意恐迟迟归。谁言寸草心，报得三春晖。谁言寸草心，报得三春晖。报得三春晖。",
             "慈母手中线，手中线，游子身上衣，身上衣。临行密密缝，意恐迟迟归。临行密密缝，意恐迟迟归。谁言寸草心，报得三春晖。谁言寸草心，报得三春晖，三春晖。",
@@ -795,6 +934,7 @@ new Vue({
       musicSwiperIndex: 0,
       oldPictureSwiper: null,
       oldPictureSwiperIndex: 0,
+      isMusicPlay: false,
 
       //洋泾浜话
       categorys: ["酒类", "食品类", "交通类", "乐器类", "生活类"],
@@ -820,10 +960,32 @@ new Vue({
       currentIcons: [],
       answerOfCurrentIcons: [],
       isPassed: false, //通关
+
+      //倒计时
+      seconds: 5,
+      timer: null,
     };
   },
   created: function () {
     this.currentIcons = this.iconData[this.activeCategoryIndex];
+  },
+  watch: {
+    isLevelFinished(val, oldVal) {
+      let _this = this;
+      if (val) {
+        this.timer = setInterval(function () {
+          console.log(_this);
+          if (_this.seconds === 1) {
+            clearInterval(_this.timer);
+            _this.activeLevelIndex += 1;
+            _this.handleDialectLevelClear();
+            _this.handleDialectLevel(_this.activeLevelIndex);
+            return;
+          }
+          _this.seconds -= 1;
+        }, 1000);
+      }
+    },
   },
   methods: {
     // handleFullScreen: function () {},
@@ -832,6 +994,7 @@ new Vue({
     },
     handleBack: function () {
       this.activeMenuIndex = -1;
+      //todo clear
     },
     handleBackToIndex: function () {
       window.location.href = "../index.html";
@@ -843,7 +1006,8 @@ new Vue({
         this.handleDialectLevel(0);
       }
       if (this.activeMenuIndex === 1) {
-        this.initListenAndTranslateSwiper();
+        this.handleRandomListen();
+        this.initListenSwiper();
       }
       if (this.activeMenuIndex === 2) {
         this.initMusicSwiper();
@@ -855,10 +1019,64 @@ new Vue({
       this.currentDialects = this.dialects[index];
       this.dialectSwiper.slideTo(0);
     },
-    handleClickOption: function (index, item) {
+    handleDialectLevelClear: function () {
+      this.currentDialects = [];
+      this.answerOfDialects = {};
+      this.dialectSelectedOption = null;
+      this.dialectSelectFlag = false; //是否已选择
+      this.isLevelPassed = false; //当前级别是否通关
+      this.isLevelFinished = false;
+    },
+    handleDialectClickOption: function (index, item) {
+      this.answerOfDialects[index] = item;
       this.dialectSelectFlag = true;
-      this.dialectSelectedIndex = index;
       this.dialectSelectedOption = item;
+
+      const subjects = Object.keys(this.answerOfDialects);
+      this.isLevelFinished = subjects.length === this.currentDialects.length;
+
+      const answers = Object.values(this.answerOfDialects);
+      const rightNum = answers.filter((t) => t.value).length;
+      this.isLevelPassed = answers.length === rightNum;
+    },
+    handleRandomListen: function () {
+      let temp = [];
+      const maxArray = this.getMaxArray();
+      const itemIndex = this.randomIndexByMaxArray(maxArray);
+      this.listens.forEach((t, index) => {
+        temp.push(t[itemIndex[index]]);
+      });
+      this.currentListens = temp;
+    },
+    getMaxArray() {
+      let maxArray = [];
+      this.listens.forEach((t) => {
+        if (t.length) {
+          const max = t.length - 1;
+          maxArray.push(max);
+        }
+      });
+      return maxArray;
+    },
+    randomIndexByMaxArray: function (arr) {
+      let result = [];
+      arr.forEach((t) => {
+        const _index = Math.floor(Math.random() * t);
+        result.push(_index);
+      });
+      return result;
+    },
+    handleListenClickOption: function (index, item) {
+      this.answerOfListens[index] = item;
+      this.listenSelectFlag = true;
+      this.listenSelectedOption = item;
+
+      const subjects = Object.keys(this.answerOfListens);
+      this.isListenFinished = subjects.length === this.currentListens.length;
+
+      const answers = Object.values(this.answerOfListens);
+      const rightNum = answers.filter((t) => t.value).length;
+      this.isListenPassed = answers.length === rightNum;
     },
     handleClickTab: function (index) {
       this.activeTabIndex = index;
@@ -866,7 +1084,22 @@ new Vue({
         ? this.initOldPictureSwiper()
         : this.initMusicSwiper();
     },
-
+    handlePlayMusic: function () {
+      const audio = this.$refs.music;
+      if (audio.paused) {
+        audio.play();
+        this.isMusicPlay = true;
+      } else {
+        audio.pause();
+        this.isMusicPlay = false;
+      }
+    },
+    handlePrevMusic: function () {
+      this.musicSwiper.slidePrev();
+    },
+    handleNextMusic: function () {
+      this.musicSwiper.slideNext();
+    },
     handleClickCategory: function (index) {
       this.isPassed = false;
       this.activeCategoryIndex = index;
@@ -910,6 +1143,7 @@ new Vue({
     initDialectSwiper() {
       let _this = this;
       this.dialectSwiper = new Swiper(".menu1 .swiper-container", {
+        allowTouchMove: false,
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
@@ -919,15 +1153,22 @@ new Vue({
         },
         on: {
           slideChange: function () {
-            _this.dialectSelectFlag = false;
-            _this.dialectSelectedIndex = null;
-            _this.dialectSelectedOption = null;
+            const op = _this.answerOfDialects[this.activeIndex];
+            if (!op) {
+              _this.dialectSelectFlag = false;
+              _this.dialectSelectedOption = null;
+            } else {
+              _this.dialectSelectFlag = true;
+              _this.dialectSelectedOption = op;
+            }
           },
         },
       });
     },
-    initListenAndTranslateSwiper() {
+    initListenSwiper() {
+      let _this = this;
       new Swiper(".menu2 .swiper-container", {
+        allowTouchMove: false,
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
@@ -935,11 +1176,25 @@ new Vue({
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        on: {
+          slideChange: function () {
+            _this.listenSwiperActiveIndex = this.activeIndex;
+            const op = _this.answerOfListens[this.activeIndex];
+            if (!op) {
+              _this.listenSelectFlag = false;
+              _this.listenSelectedOption = null;
+            } else {
+              _this.listenSelectFlag = true;
+              _this.listenSelectedOption = op;
+            }
+          },
+        },
       });
     },
     initMusicSwiper: function () {
       let _this = this;
       this.musicSwiper = new Swiper(".menu3 .music", {
+        allowTouchMove: false,
         spaceBetween: 10,
         slidesPerView: 6,
         centeredSlides: true,
@@ -954,6 +1209,7 @@ new Vue({
         },
         on: {
           slideChange: function () {
+            _this.isMusicPlay = false;
             _this.musicSwiperIndex = this.activeIndex;
           },
         },
@@ -962,6 +1218,7 @@ new Vue({
     initOldPictureSwiper: function () {
       let _this = this;
       this.oldPictureSwiper = new Swiper(".menu3 .old-pic", {
+        allowTouchMove: false,
         spaceBetween: 30,
         slidesPerView: 3,
         centeredSlides: true,

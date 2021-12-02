@@ -44,10 +44,13 @@
                                     </div>
                                     <div class="question-right">
                                         <div class="desc">{{ item.desc }}</div>
-                                        <div :class="['option', index === dialectSelectedIndex && dialectSelectedOption && dialectSelectedOption.value ? 'right': '', index === dialectSelectedIndex && dialectSelectedOption && !dialectSelectedOption.value ? 'wrong': (dialectSelectedOption && op.value ? 'right': '') ]"
-                                            v-for="(op, index) in item.options"
-                                            @click="!dialectSelectFlag && handleClickOption(index, op)">
+                                        <div :class="['option',  dialectSelectedOption && op.key === dialectSelectedOption.key && dialectSelectedOption.value ? 'right': '', dialectSelectedOption && op.key === dialectSelectedOption.key && (!dialectSelectedOption.value) ? 'wrong': (dialectSelectedOption && op.value ? 'right': '') ]"
+                                            v-for="op in item.options"
+                                            @click="!dialectSelectFlag && handleDialectClickOption(index, op)">
                                             <span class="option-id">{{ op.key }}</span> {{ op.label }}
+                                        </div>
+                                        <div class="answer-tip" v-if="dialectSelectedOption">
+                                            {{dialectSelectedOption.value? '恭喜您！回答正确！': '很遗憾！回答错误！'}}
                                         </div>
                                     </div>
                                 </div>
@@ -56,14 +59,27 @@
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
+                    <div class="modal" v-if="isLevelFinished && isLevelPassed && activeLevelIndex < 3">
+                        <span>恭喜您！</span>
+                        <span>通过上海话{{ levels[activeLevelIndex] }}测试！</span>
+                        <span>请进入{{levels[activeLevelIndex + 1]}} 测试！</span>
+                        <span class="count-down">{{ seconds }}秒后进入{{ levels[activeLevelIndex + 1] }}测试</span>
+                    </div>
+                    <div class="modal" v-if="isLevelFinished && !isLevelPassed">
+                        <span>很遗憾，</span>
+                        <span>您没有通过上海话{{ levels[activeLevelIndex] }}测试！</span>
+                        <span>还需要多多练习哦！</span>
+                        <span class="count-down" v-if="activeLevelIndex !== 3">{{ seconds }}秒后进入{{
+                            levels[activeLevelIndex + 1] }}测试</span>
+                    </div>
                 </div>
                 <div class="levels">
                     <div :class="['level-item', index === activeLevelIndex ? 'active': '']"
-                        v-for="(item, index) in levels" @click="handleDialectLevel(index)">
+                        v-for="(item, index) in levels">
                         {{ item }}
                     </div>
                 </div>
-                <div class="back"  @click="handleBack">
+                <div class="back" @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
             </div>
@@ -72,50 +88,79 @@
                 <div class="menu2-inner">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" v-for="(item, index) in listens">
+                            <div class="swiper-slide" v-for="(item, index) in currentListens">
                                 <div class="title">{{ item.title }}</div>
-                                <div class="option" v-for="(op, index) in item.options">
-                                    <div class="option-item">{{ op.label }}</div>
+                                <div :class="['option',  listenSelectedOption && op.key === listenSelectedOption.key && listenSelectedOption.value ? 'right': '', listenSelectedOption && op.key === listenSelectedOption.key && (!listenSelectedOption.value) ? 'wrong': (listenSelectedOption && op.value ? 'right': '') ]"
+                                    v-for="op in item.options">
+                                    <div class="option-item"
+                                        @click="!listenSelectFlag && handleListenClickOption(index, op)">
+                                        {{ op.label }}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
-                    <div class="tip">
-                        点击按钮听音频，选择你认为正确的答案
+                    <div class="answer-tip" v-if="listenSelectedOption">
+                        {{listenSelectedOption.value? '恭喜您！回答正确！': '很遗憾！回答错误！'}}
+                    </div>
+                    <div class="modal" v-if="isListenFinished && isListenPassed">
+                        <span>恭喜您！</span>
+                        <span>全部回答正确！</span>
+                    </div>
+                    <div class="modal" v-if="isListenFinished && !isListenPassed">
+                        <span>很可惜，</span>
+                        <span>您没有完全回答正确，</span>
+                        <span>继续加油啊！</span>
                     </div>
                 </div>
-                <div class="back"  @click="handleBack">
+                <div class="tip-info">
+                    点击按钮听音频，选择你认为正确的答案
+                </div>
+                <div class="back" @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
-                <div class="bottom">
+                <div class="bottom" v-if="currentListens[listenSwiperActiveIndex]">
                     <div class="headset">
                         <img src="./imgs/headset.png">
                     </div>
-                    <div class="play-pause">
-                        <img src="./imgs/play.png">
+                    <div class="audio-wrap">
+                        <div class="audio-left">
+                            <img src="./imgs/play.png">
+                        </div>
+                        <div class="audio-right">
+                            <audio>
+                                <source :src="currentListens[listenSwiperActiveIndex].audio">
+                            </audio>
+                            <div class="propgress">
+                                <div class="propgress-dot">
+                                    <div class="propgress-dot-small"></div>
+                                </div>
+                                <div class="progress-bar">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <audio src=""> </audio>
                 </div>
             </div>
 
             <div class="menu3" v-show="isEnter && activeMenuIndex === 2">
                 <div :class="['menu3-inner', !activeTabIndex ? 'inner-bg': '']">
                     <div v-show="!activeTabIndex" class="options">
-                        <div class="option-prev">
-                            <img src="./imgs/pan_prev.png" alt="">
+                        <div class="option-prev" @click="handlePrevMusic">
+                            <img src="./imgs/pan_prev.png">
                         </div>
-                        <div class="option-pause-play">
-                            <img src="./imgs/pan_play.png" alt="">
+                        <div class="option-pause-play"  @click="handlePlayMusic">
+                            <img :src="isMusicPlay ? './imgs/pan_pause.png': './imgs/pan_play.png'">
                         </div>
-                        <div class="option-next">
-                            <img src="./imgs/pan_next.png" alt="">
+                        <div class="option-next" @click="handleNextMusic">
+                            <img src="./imgs/pan_next.png">
                         </div>
+                        <audio ref="music" :src="musicData[musicSwiperIndex].audio"></audio>
                     </div>
 
                     <div class="current-img" v-show="activeTabIndex">
-                        <img :src="oldPictureData[oldPictureSwiperIndex]" alt="">
+                        <img :src="oldPictureData[oldPictureSwiperIndex]">
                     </div>
                     <div class="musics">
                         <div class="tab">
@@ -162,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="back"  @click="handleBack">
+                <div class="back" @click="handleBack">
                     <img src="./imgs/back.png" alt="返回">
                 </div>
             </div>
@@ -193,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="passed" v-if="isPassed">恭喜你过关了！</div>
+                    <div class="modal" v-if="isPassed">恭喜你过关了！</div>
                 </div>
                 <div class="levels">
                     <div :class="['level-item', index === activeCategoryIndex ? 'active': '']"

@@ -125,6 +125,17 @@
   margin-top: 4vh;
 }
 
+.container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .answer-tip {
+  position: absolute;
+  right: 1vw;
+  bottom: -6vh;
+  width: 21.1458vw;
+  font-size: 2.4vh;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+}
+
 .container .main .menu1 .levels {
   position: absolute;
   bottom: 10vh;
@@ -208,6 +219,7 @@
   padding: 0 8vw;
   box-sizing: border-box;
   font-size: 2.2222vh;
+  position: relative;
 }
 
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option .option-item {
@@ -215,20 +227,37 @@
   height: 10vh;
   padding: 0 2vw;
   box-sizing: border-box;
-  line-height: 10vh;
   background: #e2d6c1;
+  display: flex;
+  align-items: center;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .right::after {
+  content: url(../imgs/right.png);
+  position: absolute;
+  right: 4.1667vw;
+  bottom: -1vh;
+}
+
+.container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .wrong::after {
+  content: url(../imgs/wrong.png);
+  position: absolute;
+  right: 4.1667vw;
+  bottom: -1vh;
 }
 
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option:not(:first-child) {
   margin-top: 3vh;
 }
 
-.container .main .menu2 .menu2-inner .tip {
+.container .main .menu2 .menu2-inner .answer-tip {
   width: 100%;
   height: 8vh;
   line-height: 8vh;
   font-size: 2.5926vh;
   text-align: center;
+  color: #fff;
+  font-weight: 600;
 }
 
 .container .main .menu2 .bottom {
@@ -248,15 +277,71 @@
   flex: none;
 }
 
-.container .main .menu2 .bottom .play-pause {
+.container .main .menu2 .bottom .audio-wrap {
+  width: 100%;
+  display: flex;
+}
+
+.container .main .menu2 .bottom .audio-wrap .audio-left {
   width: 3.4896vw;
   height: 6.1111vh;
   margin: 0 1.0417vw;
   flex: none;
 }
 
-.container .main .menu2 .bottom audio {
+.container .main .menu2 .bottom .audio-wrap .audio-right {
   width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container .main .menu2 .bottom .audio-wrap .audio-right .propgress {
+  width: 100%;
+  position: relative;
+  background: #d9d9d9;
+}
+
+.container .main .menu2 .bottom .audio-wrap .audio-right .propgress .propgress-dot {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -0.7813vw;
+  margin-left: 0;
+  width: 1.5625vw;
+  height: 1.5625vw;
+  border-radius: 50%;
+  background: #8b693a;
+  cursor: pointer;
+}
+
+.container .main .menu2 .bottom .audio-wrap .audio-right .propgress .propgress-dot .propgress-dot-small {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -0.3906vw;
+  margin-left: -0.3906vw;
+  width: 0.7813vw;
+  height: 0.7813vw;
+  border-radius: 50%;
+  background: #3a290f;
+  z-index: 1;
+}
+
+.container .main .menu2 .bottom .audio-wrap .audio-right .propgress .progress-bar {
+  width: 0;
+  background-color: #915811;
+  height: 0.1852vh;
+}
+
+.container .main .menu2 .tip-info {
+  position: absolute;
+  left: 0;
+  bottom: 17vh;
+  width: 100%;
+  height: 8vh;
+  line-height: 8vh;
+  font-size: 2.4074vh;
+  text-align: center;
 }
 
 .container .main .menu3 {
@@ -515,21 +600,6 @@
   animation-delay: 0.9s;
 }
 
-.container .main .menu4 .menu4-inner .passed {
-  position: absolute;
-  top: 6vh;
-  left: 50%;
-  width: 50vw;
-  height: 43vh;
-  line-height: 43vh;
-  font-size: 3.7037vh;
-  font-weight: 600;
-  margin-left: -25vw;
-  background: #915811;
-  color: #FFF;
-  text-align: center;
-}
-
 .container .main .menu4 .levels {
   position: absolute;
   bottom: 10vh;
@@ -663,6 +733,28 @@
   position: absolute;
   bottom: 11.5vh;
   right: 19.5vw;
+}
+
+.container .main .modal {
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  width: 50vw;
+  height: 43vh;
+  font-size: 3.7037vh;
+  font-weight: 600;
+  margin-left: -25vw;
+  background: #915811;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container .main .modal span {
+  display: block;
 }
 
 .container .main-0 {
