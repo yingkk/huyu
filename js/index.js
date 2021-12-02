@@ -943,18 +943,48 @@ new Vue({
       iconData: [
         [
           [
-            "./imgs/group1_1_left.png",
-            "./imgs/group1_2_left.png",
-            "./imgs/group1_3_left.png",
-            "./imgs/group1_4_left.png",
-            "./imgs/group1_5_left.png",
+            {
+              key: "1_1_left",
+              src: "./imgs/group1_1_left.png",
+            },
+            {
+              key: "1_2_left",
+              src: "./imgs/group1_2_left.png",
+            },
+            {
+              key: "1_3_left",
+              src: "./imgs/group1_3_left.png",
+            },
+            {
+              key: "1_4_left",
+              src: "./imgs/group1_4_left.png",
+            },
+            {
+              key: "1_5_left",
+              src: "./imgs/group1_5_left.png",
+            }
           ],
           [
-            "./imgs/group1_1_right.png",
-            "./imgs/group1_2_right.png",
-            "./imgs/group1_3_right.png",
-            "./imgs/group1_4_right.png",
-            "./imgs/group1_5_right.png",
+            {
+              key: "1_1_right",
+              src: "./imgs/group1_1_right.png",
+            },
+            {
+              key: "1_3_right",
+              src: "./imgs/group1_3_right.png",
+            },
+            {
+              key: "1_4_right",
+              src: "./imgs/group1_4_right.png",
+            },
+            {
+              key: "1_5_right",
+              src: "./imgs/group1_5_right.png",
+            },
+            {
+              key: "1_2_right",
+              src: "./imgs/group1_2_right.png",
+            }
           ],
         ],
       ],

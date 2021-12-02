@@ -215,9 +215,8 @@
                     <div class="icons">
                         <div class="icons-inner" v-if="currentIcons.length">
                             <div class="icon-item" v-for="(item, index) in currentIcons[0]">
-                                <img :id="activeCategoryIndex+'_'+ index+'_left'" :src="item" draggable="true"
-                                    @dragstart="handleDrag(event)" @dragover="handleDragOver(event)"
-                                    @drop="handleDrop(event)">
+                                <img :id="item.key" :src="item.src" draggable="true" @dragstart="handleDrag(event)"
+                                    @dragover="handleDragOver(event)" @drop="handleDrop(event)">
                                 <div class="bubbles">
                                     <img src="./imgs/right.png" alt="">
                                 </div>
@@ -227,9 +226,8 @@
                     <div class="icons">
                         <div class="icons-inner" v-if="currentIcons.length">
                             <div class="icon-item" v-for="(item, index) in currentIcons[1]">
-                                <img :src="item" :id="activeCategoryIndex+'_'+ index+'_right'" draggable="true"
-                                    @dragstart="handleDrag(event)" @dragover="handleDragOver(event)"
-                                    @drop="handleDrop(event)">
+                                <img :id="item.key" :src="item.src" draggable="true" @dragstart="handleDrag(event)"
+                                    @dragover="handleDragOver(event)" @drop="handleDrop(event)">
                                 <div class="bubbles">
                                     <img src="./imgs/right.png" alt="">
                                 </div>
