@@ -128,14 +128,14 @@
           position: absolute;
           bottom: 0;
           width: 6.3542vw;
-          height: 11.2963vh;
+          height: 6.3542vw;
           border: 0.1042vw solid #fff;
           background: #cab99d;
           color: #3a290f;
-          font-size: 2.963vh;
+          font-size: 1.6667vw;
           font-weight: 500;
           text-align: center;
-          line-height: 11.2963vh;
+          line-height: 6.3542vw;
           border-radius: 50%;
           box-sizing: border-box;
         }
@@ -255,39 +255,28 @@
             width: 100%;
             display: flex;
             align-items: center;
-            .propgress {
+            input[type="range"] {
+              -webkit-appearance: none;
               width: 100%;
-              position: relative;
-              background: #d9d9d9;
-              .propgress-dot {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                margin-top: -0.7813vw;
-                margin-left: 0;
-                width: 1.5625vw;
-                height: 1.5625vw;
-                border-radius: 50%;
-                background: #8b693a;
-                cursor: pointer;
-                .propgress-dot-small {
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  margin-top: -0.3906vw;
-                  margin-left: -0.3906vw;
-                  width: 0.7813vw;
-                  height: 0.7813vw;
-                  border-radius: 50%;
-                  background: #3a290f;
-                  z-index: 1;
-                }
-              }
-              .progress-bar {
-                width: 0;
-                background-color: #915811;
-                height: 0.1852vh;
-              }
+              border-radius: 10px;
+              height: 0.8vh;
+              z-index: 10;
+            }
+
+            input[type="range"]::-webkit-slider-runnable-track {
+              height: 0.8vh;
+              background: rgba(248, 246, 246, 0.2);
+              border-radius: 10px;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              height: 1.5625vw;
+              width: 1.5625vw;
+              background: #3a290f;
+              border: 0.2083vw solid #8b693a;
+              margin-top: -0.7vh;
+              border-radius: 50%;
             }
           }
         }
@@ -558,14 +547,14 @@
           position: absolute;
           bottom: 0;
           width: 6.3542vw;
-          height: 11.2963vh;
+          height: 6.3542vw;
           border: 0.1042vw solid #fff;
           background: #cab99d;
           color: #3a290f;
-          font-size: 2.963vh;
+          font-size: 1.6667vw;
           font-weight: 500;
           text-align: center;
-          line-height: 11.2963vh;
+          line-height: 6.3542vw;
           border-radius: 50%;
           box-sizing: border-box;
         }

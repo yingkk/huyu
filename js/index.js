@@ -680,6 +680,13 @@ new Vue({
       listenSwiperActiveIndex: 0,
       isListenPlay: false,
 
+      //rang
+      progressPoint: 0,
+      max: 100,
+      //audio
+      currentTime: 0,
+      duration: 0, //audio总时长
+
       //童谣
       activeTabIndex: 0,
       tabs: ["沪语童谣", "沪语老照片"],
@@ -962,7 +969,7 @@ new Vue({
             {
               key: "1_5_left",
               src: "./imgs/group1_5_left.png",
-            }
+            },
           ],
           [
             {
@@ -984,7 +991,7 @@ new Vue({
             {
               key: "1_2_right",
               src: "./imgs/group1_2_right.png",
-            }
+            },
           ],
         ],
       ],
@@ -997,6 +1004,7 @@ new Vue({
       timer: null,
     };
   },
+  mounted: function () {},
   created: function () {
     this.currentIcons = this.iconData[this.activeCategoryIndex];
   },
@@ -1005,7 +1013,6 @@ new Vue({
       let _this = this;
       if (val) {
         this.timer = setInterval(function () {
-          console.log(_this);
           if (_this.seconds === 1) {
             clearInterval(_this.timer);
             _this.activeLevelIndex += 1;
@@ -1017,9 +1024,15 @@ new Vue({
         }, 1000);
       }
     },
+    listenSwiperActiveIndex(val, oldVal) {
+      this.$refs.listen.load();
+    },
   },
   methods: {
-    // handleFullScreen: function () {},
+    handleFullScreen: function () {
+      const dom = document.getElementById("full-screen");
+      dom.requestFullscreen();
+    },
     handleEnter: function () {
       this.isEnter = true;
     },
@@ -1111,11 +1124,26 @@ new Vue({
     },
     handlePlayListen: function () {
       const audio = this.$refs.listen;
+      this.duration = audio.duration;
       if (audio.paused) {
         audio.play();
         this.isListenPlay = true;
       } else {
         audio.pause();
+        this.isListenPlay = false;
+      }
+    },
+    changeProgress: function () {
+      const range = this.$refs.range;
+      this.progressPoint = range.value;
+      this.currentTime = this.duration * (this.progressPoint / this.max);
+      const audio = this.$refs.listen;
+      audio.currentTime = this.currentTime;
+    },
+    timeUpdate: function (e) {
+      this.currentTime = e.target.currentTime;
+      this.progressPoint = 100 * (this.currentTime / this.duration);
+      if (this.progressPoint === this.max) {
         this.isListenPlay = false;
       }
     },
@@ -1149,6 +1177,17 @@ new Vue({
     handleDrag: function (e) {
       e.dataTransfer.setData("id", e.currentTarget.id);
     },
+    handleDragLeave: function (e) {
+      // console.log(e)
+      // const dragElementId = e.dataTransfer.getData("id");
+      // const targetId = e.currentTarget.id;
+      // const flag = this.compareEleementIdOfSuffix(dragElementId, targetId);
+      // if (!flag) {
+      //   return;
+      // }
+      
+      $("#" + e.currentTarget.id).hide();
+    },
     handleDragOver: function (e) {
       e.preventDefault();
     },
@@ -1157,8 +1196,13 @@ new Vue({
       let _this = this;
       const dragElementId = e.dataTransfer.getData("id");
       const targetId = e.currentTarget.id;
-      const flag = this.dealElementId(dragElementId, targetId);
+      if (dragElementId === targetId) {
+        $("#" + dragElementId).show();
+        return;
+      }
+      const flag = this.compareElementId(dragElementId, targetId);
       if (!flag) {
+        $("#" + dragElementId).show();
         return;
       }
       this.answerOfCurrentIcons.push(dragElementId);
@@ -1176,10 +1220,18 @@ new Vue({
           _this.currentIcons = _this.isPassed ? [] : _this.currentIcons;
         });
     },
-    dealElementId(originId, targetId) {
+    compareElementId(originId, targetId) {
       let _originId = originId.match(/(\S*)_/)[1];
       let _targetId = targetId.match(/(\S*)_/)[1];
       return _originId === _targetId;
+    },
+    compareEleementIdOfSuffix(originId, targetId) {
+      const _originIndex = originId.lastIndexOf("_") + 1;
+      let originSuffix = originId.substring(_originIndex);
+      const _targetIndex = targetId.lastIndexOf("_") + 1;
+      let targetSuffix = targetId.substring(_targetIndex);
+      console.log(originSuffix, targetSuffix)
+      return originSuffix === targetSuffix;
     },
     initDialectSwiper() {
       let _this = this;

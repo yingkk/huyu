@@ -16,7 +16,7 @@
     <title>上海博物馆</title>
 </head>
 
-<body>
+<body id="full-screen">
     <div id="app"
         :class="['container', isEnter ? 'menus-bg': 'index-bg', activeMenuIndex > -1 ? 'menu-'+activeMenuIndex : '']">
         <header :class="!isEnter ? 'white-header': ''">
@@ -26,6 +26,9 @@
             <div class="back" @click="handleBackToIndex">
                 <img :src="!isEnter ? './imgs/back_index_1.png': './imgs/back_index_2.png'" alt="返回首页">
             </div>
+            <!-- <div class="full-screen" @click="handleFullScreen">
+                全屏
+            </div> -->
         </header>
         <div :class="['main', activeMenuIndex > -1 ? 'main-'+activeMenuIndex: '']">
             <div class="menu1" v-show="isEnter && !activeMenuIndex">
@@ -129,14 +132,10 @@
                             <img :src="isListenPlay ? './imgs/pause.png': './imgs/play.png'">
                         </div>
                         <div class="audio-right">
-                            <audio ref="listen" :src="currentListens[listenSwiperActiveIndex].audio"></audio>
-                            <div class="propgress">
-                                <div class="propgress-dot">
-                                    <div class="propgress-dot-small"></div>
-                                </div>
-                                <div class="progress-bar">
-                                </div>
-                            </div>
+                            <audio ref="listen" :src="currentListens[listenSwiperActiveIndex].audio"  @timeupdate="timeUpdate"></audio>
+                            <input ref="range" type="range" :max="max" min="0" step="1" :value="progressPoint" 
+                                @input="changeProgress" 
+                                :style="{background: '-webkit-linear-gradient(top, #a56403, #3a290f) 0% 0% / '+ progressPoint*100/max +'% 100% no-repeat'}">
                         </div>
                     </div>
                 </div>
@@ -216,7 +215,7 @@
                         <div class="icons-inner" v-if="currentIcons.length">
                             <div class="icon-item" v-for="(item, index) in currentIcons[0]">
                                 <img :id="item.key" :src="item.src" draggable="true" @dragstart="handleDrag(event)"
-                                    @dragover="handleDragOver(event)" @drop="handleDrop(event)">
+                                    @dragover="handleDragOver(event)" @drop="handleDrop(event)" @dragleave="handleDragLeave(event)">
                                 <div class="bubbles">
                                     <img src="./imgs/bubble.gif" alt="">
                                 </div>
