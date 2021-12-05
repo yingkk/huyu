@@ -4,6 +4,7 @@ new Vue({
     return {
       isEnter: false,
       activeMenuIndex: -1,
+      isShowFullScreen: true,
       menus: ["上海方言", "沪语听译", "沪语童谣", "洋泾浜话"],
       // 方言
       dialectSwiper: null,
@@ -1004,7 +1005,7 @@ new Vue({
       timer: null,
     };
   },
-  mounted: function () {},
+  mounted: function () { },
   created: function () {
     this.currentIcons = this.iconData[this.activeCategoryIndex];
   },
@@ -1031,7 +1032,20 @@ new Vue({
   methods: {
     handleFullScreen: function () {
       const dom = document.getElementById("full-screen");
-      dom.requestFullscreen();
+      if (dom.requestFullscreen) {
+        dom.requestFullscreen();
+      } else if (dom.mozRequestFullScreen) {
+        // //FireFox 
+        dom.mozRequestFullScreen();
+      } else if (dom.webkitRequestFullScreen) {
+        //Chrome等 
+        dom.webkitRequestFullScreen();
+      } else if (dom.msRequestFullscreen) {
+        //IE11
+        dom.msRequestFullscreen();
+      }
+      // dom.requestFullscreen();
+      this.isShowFullScreen = false;
     },
     handleEnter: function () {
       this.isEnter = true;
@@ -1176,17 +1190,6 @@ new Vue({
     },
     handleDrag: function (e) {
       e.dataTransfer.setData("id", e.currentTarget.id);
-    },
-    handleDragLeave: function (e) {
-      // console.log(e)
-      // const dragElementId = e.dataTransfer.getData("id");
-      // const targetId = e.currentTarget.id;
-      // const flag = this.compareEleementIdOfSuffix(dragElementId, targetId);
-      // if (!flag) {
-      //   return;
-      // }
-      
-      $("#" + e.currentTarget.id).hide();
     },
     handleDragOver: function (e) {
       e.preventDefault();

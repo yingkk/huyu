@@ -19,6 +19,9 @@
 <body id="full-screen">
     <div id="app"
         :class="['container', isEnter ? 'menus-bg': 'index-bg', activeMenuIndex > -1 ? 'menu-'+activeMenuIndex : '']">
+        <div class="full-modal-wrap" v-if="isShowFullScreen">
+            <div class="full-screen animated pulse" @click="handleFullScreen">点我进入全屏</div>
+        </div>
         <header :class="!isEnter ? 'white-header': ''">
             <div class="logo">
                 <img :src="!isEnter ? './imgs/logo_1.png': './imgs/logo_2.png'" alt="上海博物馆">
@@ -26,9 +29,6 @@
             <div class="back" @click="handleBackToIndex">
                 <img :src="!isEnter ? './imgs/back_index_1.png': './imgs/back_index_2.png'" alt="返回首页">
             </div>
-            <!-- <div class="full-screen" @click="handleFullScreen">
-                全屏
-            </div> -->
         </header>
         <div :class="['main', activeMenuIndex > -1 ? 'main-'+activeMenuIndex: '']">
             <div class="menu1" v-show="isEnter && !activeMenuIndex">
@@ -62,18 +62,22 @@
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
-                    <div class="modal" v-if="isLevelFinished && isLevelPassed && activeLevelIndex < 3">
-                        <span>恭喜您！</span>
-                        <span>通过上海话{{ levels[activeLevelIndex] }}测试！</span>
-                        <span>请进入{{levels[activeLevelIndex + 1]}} 测试！</span>
-                        <span class="count-down">{{ seconds }}秒后进入{{ levels[activeLevelIndex + 1] }}测试</span>
+                    <div class="modal-wrap" v-if="isLevelFinished && isLevelPassed && activeLevelIndex < 3">
+                        <div class="modal">
+                            <span>恭喜您！</span>
+                            <span>通过上海话{{ levels[activeLevelIndex] }}测试！</span>
+                            <span>请进入{{levels[activeLevelIndex + 1]}} 测试！</span>
+                            <span class="count-down">{{ seconds }}秒后进入{{ levels[activeLevelIndex + 1] }}测试</span>
+                        </div>
                     </div>
-                    <div class="modal" v-if="isLevelFinished && !isLevelPassed">
-                        <span>很遗憾，</span>
-                        <span>您没有通过上海话{{ levels[activeLevelIndex] }}测试！</span>
-                        <span>还需要多多练习哦！</span>
-                        <span class="count-down" v-if="activeLevelIndex !== 3">{{ seconds }}秒后进入{{
-                            levels[activeLevelIndex + 1] }}测试</span>
+                    <div class="modal-wrap" v-if="isLevelFinished && !isLevelPassed">
+                        <div class="modal">
+                            <span>很遗憾，</span>
+                            <span>您没有通过上海话{{ levels[activeLevelIndex] }}测试！</span>
+                            <span>还需要多多练习哦！</span>
+                            <span class="count-down" v-if="activeLevelIndex !== 3">{{ seconds }}秒后进入{{
+                                levels[activeLevelIndex + 1] }}测试</span>
+                        </div>
                     </div>
                 </div>
                 <div class="levels">
@@ -81,9 +85,6 @@
                         v-for="(item, index) in levels">
                         {{ item }}
                     </div>
-                </div>
-                <div class="back" @click="handleBack">
-                    <img src="./imgs/back.png" alt="返回">
                 </div>
             </div>
 
@@ -107,21 +108,24 @@
                     <div class="answer-tip" v-if="listenSelectedOption">
                         {{listenSelectedOption.value? '恭喜您！回答正确！': '很遗憾！回答错误！'}}
                     </div>
-                    <div class="modal" v-if="isListenFinished && isListenPassed">
-                        <span>恭喜您！</span>
-                        <span>全部回答正确！</span>
+                    <div class="modal-wrap" v-if="isListenFinished && isListenPassed">
+                        <div class="modal">
+                            <span>恭喜您！</span>
+                            <span>全部回答正确！</span>
+                        </div>
                     </div>
-                    <div class="modal" v-if="isListenFinished && !isListenPassed">
-                        <span>很可惜，</span>
-                        <span>您没有完全回答正确，</span>
-                        <span>继续加油啊！</span>
+
+                    <div class="modal-wrap" v-if="isListenFinished && !isListenPassed">
+                        <div class="modal">
+                            <span>很可惜，</span>
+                            <span>您没有完全回答正确，</span>
+                            <span>继续加油啊！</span>
+                        </div>
                     </div>
+
                 </div>
                 <div class="tip-info">
                     点击按钮听音频，选择你认为正确的答案
-                </div>
-                <div class="back" @click="handleBack">
-                    <img src="./imgs/back.png" alt="返回">
                 </div>
                 <div class="bottom" v-if="currentListens[listenSwiperActiveIndex]">
                     <div class="headset">
@@ -132,9 +136,10 @@
                             <img :src="isListenPlay ? './imgs/pause.png': './imgs/play.png'">
                         </div>
                         <div class="audio-right">
-                            <audio ref="listen" :src="currentListens[listenSwiperActiveIndex].audio"  @timeupdate="timeUpdate"></audio>
-                            <input ref="range" type="range" :max="max" min="0" step="1" :value="progressPoint" 
-                                @input="changeProgress" 
+                            <audio ref="listen" :src="currentListens[listenSwiperActiveIndex].audio"
+                                @timeupdate="timeUpdate"></audio>
+                            <input ref="range" type="range" :max="max" min="0" step="1" :value="progressPoint"
+                                @input="changeProgress"
                                 :style="{background: '-webkit-linear-gradient(top, #a56403, #3a290f) 0% 0% / '+ progressPoint*100/max +'% 100% no-repeat'}">
                         </div>
                     </div>
@@ -204,9 +209,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="back" @click="handleBack">
-                    <img src="./imgs/back.png" alt="返回">
-                </div>
             </div>
 
             <div class="menu4" v-show="isEnter && activeMenuIndex === 3">
@@ -215,7 +217,7 @@
                         <div class="icons-inner" v-if="currentIcons.length">
                             <div class="icon-item" v-for="(item, index) in currentIcons[0]">
                                 <img :id="item.key" :src="item.src" draggable="true" @dragstart="handleDrag(event)"
-                                    @dragover="handleDragOver(event)" @drop="handleDrop(event)" @dragleave="handleDragLeave(event)">
+                                    @dragover="handleDragOver(event)" @drop="handleDrop(event)">
                                 <div class="bubbles">
                                     <img src="./imgs/bubble.gif" alt="">
                                 </div>
@@ -233,7 +235,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal" v-if="isPassed">恭喜你过关了！</div>
+                    <div class="modal-wrap" v-if="isPassed">
+                        <div class="modal">恭喜你过关了！</div>
+                    </div>
                 </div>
                 <div class="levels">
                     <div :class="['level-item', index === activeCategoryIndex ? 'active': '']"
@@ -241,16 +245,18 @@
                         {{ item }}
                     </div>
                 </div>
-                <div class="back" @click="handleBack">
-                    <img src="./imgs/back.png" alt="返回">
-                </div>
             </div>
 
             <!-- menus -->
             <div class="menus" v-if="isEnter && activeMenuIndex === -1">
                 <div class="menu-item animated fadeInLeft" v-for="(item, index) in menus" @click="handleMenu(index)">
-                    <img :src="'./imgs/menu_'+ (index + 1) +'.png'" :alt="item">
+                    <img :src="activeMenuIndex === index ? './imgs/menu_'+ (index + 1) +'_active.png' : './imgs/menu_'+ (index + 1) +'.png'" :alt="item">
                 </div>
+            </div>
+
+            <!-- back -->
+            <div class="back" v-if="isEnter && activeMenuIndex > -1" @click="handleBack">
+                <img src="./imgs/back.png" alt="返回">
             </div>
 
             <!-- enter -->

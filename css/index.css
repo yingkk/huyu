@@ -664,11 +664,6 @@
   height: 56.1111vh;
 }
 
-.container .main .menus .menu-item:nth-child(1):hover,
-.container .main .menus .menu-item:nth-child(1):active img {
-  content: url(../imgs/menu_1_active.png);
-}
-
 .container .main .menus .menu-item:nth-child(2) {
   position: absolute;
   top: 11vh;
@@ -678,11 +673,6 @@
 
 .container .main .menus .menu-item:nth-child(2) img {
   height: 52.4074vh;
-}
-
-.container .main .menus .menu-item:nth-child(2):hover,
-.container .main .menus .menu-item:nth-child(2):active img {
-  content: url(../imgs/menu_2_active.png);
 }
 
 .container .main .menus .menu-item:nth-child(3) {
@@ -696,11 +686,6 @@
   height: 61.0185vh;
 }
 
-.container .main .menus .menu-item:nth-child(3):hover,
-.container .main .menus .menu-item:nth-child(3):active img {
-  content: url(../imgs/menu_3_active.png);
-}
-
 .container .main .menus .menu-item:nth-child(4) {
   position: absolute;
   top: 7vh;
@@ -712,26 +697,19 @@
   height: 57.2222vh;
 }
 
-.container .main .menus .menu-item:nth-child(4):hover,
-.container .main .menus .menu-item:nth-child(4):active img {
-  content: url(../imgs/menu_4_active.png);
-}
-
 .container .main .back {
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
   bottom: 11.5vh;
   right: 19.5vw;
+  width: 6.5625vw;
 }
 
 .container .main .modal {
-  position: absolute;
-  top: 6vh;
-  left: 50%;
   width: 50vw;
   height: 43vh;
   font-size: 3.7037vh;
   font-weight: 600;
-  margin-left: -25vw;
   background: #915811;
   color: #fff;
   text-align: center;
@@ -977,6 +955,36 @@
 .menu3 .swiper-button-next.swiper-button-disabled {
   cursor: auto;
   pointer-events: all;
+}
+
+.modal-wrap, .full-modal-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-wrap .back, .full-modal-wrap .back {
+  width: 7.3438vw;
+}
+
+.modal-wrap .full-screen, .full-modal-wrap .full-screen {
+  width: 20vw;
+  height: 10vh;
+  text-align: center;
+  line-height: 10vh;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 3.7037vh;
+  background: #8b693a;
+  border-radius: 10vh;
+  animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes rowup {
