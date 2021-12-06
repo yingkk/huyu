@@ -127,7 +127,7 @@
                 <div class="tip-info">
                     点击按钮听音频，选择你认为正确的答案
                 </div>
-                <div class="bottom" v-if="currentListens[listenSwiperActiveIndex]">
+                <div class="bottom" v-show="currentListens.length && currentListens[listenSwiperActiveIndex]">
                     <div class="headset">
                         <img src="./imgs/headset.png">
                     </div>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="audio-right">
                             <audio ref="listen" :src="currentListens[listenSwiperActiveIndex].audio"
-                                @timeupdate="timeUpdate"></audio>
+                                @timeupdate="timeUpdate"  @canplay="listenCanPlay"></audio>
                             <input ref="range" type="range" :max="max" min="0" step="1" :value="progressPoint"
                                 @input="changeProgress"
                                 :style="{background: '-webkit-linear-gradient(top, #a56403, #3a290f) 0% 0% / '+ progressPoint*100/max +'% 100% no-repeat'}">
@@ -215,7 +215,7 @@
                 <div class="menu4-inner">
                     <div class="icons">
                         <div class="icons-inner" v-if="currentIcons.length">
-                            <div class="icon-item" v-for="(item, index) in currentIcons[0]">
+                            <div :class="['icon-item', 'icon-item-'+currentIcons[0].length ]" v-for="(item, index) in currentIcons[0]">
                                 <img :id="item.key" :src="item.src" draggable="true" @dragstart="handleDrag(event)"
                                     @dragover="handleDragOver(event)" @drop="handleDrop(event)">
                                 <div class="bubbles">
@@ -226,7 +226,7 @@
                     </div>
                     <div class="icons">
                         <div class="icons-inner" v-if="currentIcons.length">
-                            <div class="icon-item" v-for="(item, index) in currentIcons[1]">
+                            <div :class="['icon-item', 'icon-item-'+currentIcons[0].length]" v-for="(item, index) in currentIcons[1]">
                                 <img :id="item.key" :src="item.src" draggable="true" @dragstart="handleDrag(event)"
                                     @dragover="handleDragOver(event)" @drop="handleDrop(event)">
                                 <div class="bubbles">

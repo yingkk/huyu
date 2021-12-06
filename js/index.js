@@ -478,49 +478,33 @@ new Vue({
                 key: "A",
                 label:
                   "B：你今天为什么起来那么早？ A：学校今天有事情，所以我早点去了。",
-                value: true,
+                value: false,
               },
               {
                 key: "B",
                 label:
                   "B：你今天为什么起来那么早？ A：今天公司有事情，我先走了。",
-                value: false,
-              },
-            ],
-          },
-          {
-            title: "第一课 问候 情景(二)",
-            audio: "./media/listen1_2.mp3",
-            options: [
-              {
-                key: "A",
-                label: "A：爸爸，我回来了。B：这么早就回来了，你吃过了吗？ ",
                 value: true,
               },
-              {
-                key: "B",
-                label: "A：爸爸，我回来了。B：那我们一起去吃饭吧？",
-                value: false,
-              },
             ],
-          },
+          }
         ],
         [
           {
-            title: "第二课 晚上 情景(一)",
-            audio: "./media/listen3_2.mp3",
+            title: "第二课 晚上 情景(二)",
+            audio: "./media/listen2_1.mp3",
             options: [
               {
                 key: "A",
                 label:
-                  "B：这么早就回来了，你吃过了吗？ A：哥哥呢？ B：他出去了。",
-                value: true,
+                  "B：这么早就回来了，你吃过了吗？ A：没吃过了，一直在公司加班呢！",
+                value: false,
               },
               {
                 key: "B",
                 label:
-                  "B：这么早就回来了，你吃过了吗？ A：没吃过了，已知在公司加班呢！",
-                value: false,
+                  "B：这么早就回来了，你吃过了吗？ A：哥哥呢？ B：他出去了。",
+                value: true,
               },
             ],
           },
@@ -529,6 +513,24 @@ new Vue({
           {
             title: "第三课 问路 情景(一)",
             audio: "./media/listen3_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "甲：先生，对不起，到上海虹桥火车站乘哪一辆车？ 乙：乘123。",
+                value: false,
+              },
+              {
+                key: "B",
+
+                label: "甲：先生，对不起，到上海火车站乘哪一辆车？ 乙：乘123。",
+                value: true,
+              },
+            ],
+          },
+          {
+            title: "第三课 问路 情景(二)",
+            audio: "./media/listen3_2.mp3",
             options: [
               {
                 key: "A",
@@ -544,135 +546,168 @@ new Vue({
               },
             ],
           },
+          {
+            title: "第三课 问路 情景(三)",
+            audio: "./media/listen3_3.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "甲：师傅，到中山南路。乙：走江西路好吗？这条路堵得厉害。 甲：没事儿。只要你九点前开到。乙：一句闲话。",
+                value: false,
+              },
+              {
+                key: "B",
+                label:
+                  "甲：师傅，到淮海路。乙：走那条路好吗？这条路堵得厉害。 甲：没事儿。只要你九点前开到。乙：一句闲话。",
+                value: true,
+              },
+            ],
+          },
         ],
-        // [
-        //   {
-        //     title: "第四课 看病 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
-        // [
-        //   {
-        //     title: "第五课 住酒店 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
-        // [
-        //   {
-        //     title: "第六课 打电话 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
-        // [
-        //   {
-        //     title: "第七课 午餐 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
-        // [
-        //   {
-        //     title: "第八课 观光 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
-        // [
-        //   {
-        //     title: "第九课 购物 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
-        // [
-        //   {
-        //     title: "第十课 告别送行 情景(一)",
-        //     audio: "",
-        //     options: [
-        //       {
-        //         key: "A",
-        //         label: "",
-        //         value: true,
-        //       },
-        //       {
-        //         key: "B",
-        //         label: "",
-        //         value: false,
-        //       },
-        //     ],
-        //   },
-        // ],
+        [
+          {
+            title: "第四课 看病 情景(一)",
+            audio: "./media/listen4_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "乙：没有。但是吐过了。甲：是不是吃了不干净的东西了？ 乙：应该是没有啊。甲：你睡上去，让我摸摸看。",
+                value: true,
+              },
+              {
+                key: "B",
+                label:
+                  "乙：没有。但是吐过了。甲：是不是早上吃了生煎包太油了？ 乙：应该是没有啊。甲：你去做个检查，让我看看结果再说。",
+                value: false,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第五课 住酒店 情景(一)",
+            audio: "./media/listen5_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                "甲：酒店里面有没有贵重物品保险箱？乙：有的。但是你要先到大堂办理手续。甲：需不需要钱给你。乙：我们酒店服务员是不能收小费的。 甲：那就谢谢你帮我忙拿箱子。",
+              value: false,
+              },
+              {
+                key: "B",
+                label:
+                "甲：酒店里面有没有贵重物品保险箱？乙：有的。但是你要先到大堂办理手续。甲：这些钱给你。乙：不行。我们酒店服务员是不能收小费的。 甲：那就谢谢你帮我忙拿箱子。",
+              value: true,
+               
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第六课 打电话 情景(一)",
+            audio: "./media/listen6_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "甲：就是啊！我还可以吧！上班挺忙的。你呢？乙：我工作不太顺心，想换工作，现在的工作钱太少了。 甲：这种事情是不能太急的啊，对吗？ 乙：就是说啊！哎，最近我的身体也不太好，老是生病。",
+                value: true,
+              },
+              {
+                key: "B",
+                label:
+                  "甲：就是啊！我工作不是很忙。你呢？乙：最近公司业务不好，想换工作，现在的工作钱太少了。 甲：这种事情是不能太急的啊，对吗？ 乙：就是说啊！哎，最近我也想休息一下。",
+                value: false,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第七课 午餐 情景(一)",
+            audio: "./media/listen7_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "乙：那怎么行，老同学难得碰上一回，怎么能吃快餐呢。甲：你喜欢吃什么？你来点。乙：这么多菜不知道点什么好，还是你来。甲：一个炒虾仁，一个鱼香肉丝，一个松鼠黄鱼。",
+                value: true,
+              },
+              {
+                key: "B",
+                label:
+                  "乙：那怎么行，同事难得碰上一回，怎么能随便吃呢。甲：你喜欢吃什么？你来点。乙：这么多菜不知道点什么好，还是你来。甲：一个炒青菜，一个鱼香肉丝，一个鲫鱼。",
+                value: false,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第八课 观光 情景(一)",
+            audio: "./media/listen8_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                "甲：这两年上海变化这么大，许多地方都认不出了。 乙：是的，现在南京路是步行街，不通车了。甲：我还想到浦东去，看看东方明珠、金茂大厦、世纪公园等等。",
+              value: true,
+              },
+              {
+                key: "B",
+                label:
+                "甲：这十年上海变化这么大，许多地方都认不出了。 乙：是的，现在南京路是步行街，不通车了。甲：我还想去看看人民公园等等。",
+              value: false,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第九课 购物 情景(一)",
+            audio: "./media/listen9_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "甲：这件裤子很时髦的啊，料子又很好的。乙：感觉一般般嘛，而且价格好贵呀？甲：你诚心买的吗？乙： 当然，打个折扣好吗？",
+                value: false,
+              },
+              {
+                key: "B",
+                label:
+                  "甲：这件衣裳很时髦的啊，料子又很好的。乙：好是挺好的，可以稍微便宜点吗？甲：你诚心买的吗？乙： 当然，打个折扣好吗？",
+                value: true,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            title: "第十课 告别送行 情景(一)",
+            audio: "./media/listen10_1.mp3",
+            options: [
+              {
+                key: "A",
+                label:
+                  "乙：看到老同学真的很开心啊。甲：那你爸爸妈妈一定也很舍不得你走的。乙：就是说啊，我不想让奶奶去机场送我，去了她又要哭了。甲：你到了日本，记得要跟我们多联系。 乙：那是一定的。",
+                value: false,
+              },
+              {
+                key: "B",
+                label:
+                  "乙：看到老同学真的很开心啊。甲：那你爸爸妈妈一定也很舍不得你走的。乙：就是说啊，我不想让妈妈去机场送我，去了她又要忍不住哭了。甲：你到了美国，记得要跟我们多联系。 乙：那是一定的。",
+                value: true,
+              },
+            ],
+          },
+        ],
       ],
-      currentListens: [],
+      currentListens: [], //当前随机的题目
       answerOfListens: {},
       listenSelectedOption: null,
       listenSelectFlag: false, //是否已选择
@@ -995,6 +1030,122 @@ new Vue({
             },
           ],
         ],
+        [
+          [
+            {
+              key: "1_1_left",
+              src: "./imgs/group1_1_left.png",
+            },
+            {
+              key: "1_2_left",
+              src: "./imgs/group1_2_left.png",
+            },
+            {
+              key: "1_3_left",
+              src: "./imgs/group1_3_left.png",
+            },
+            {
+              key: "1_4_left",
+              src: "./imgs/group1_4_left.png",
+            },
+            {
+              key: "1_5_left",
+              src: "./imgs/group1_5_left.png",
+            },
+            {
+              key: "1_5_left",
+              src: "./imgs/group1_5_left.png",
+            },
+            {
+              key: "1_5_left",
+              src: "./imgs/group1_5_left.png",
+            },
+          ],
+          [
+            {
+              key: "1_1_right",
+              src: "./imgs/group1_1_right.png",
+            },
+            {
+              key: "1_3_right",
+              src: "./imgs/group1_3_right.png",
+            },
+            {
+              key: "1_4_right",
+              src: "./imgs/group1_4_right.png",
+            },
+            {
+              key: "1_5_right",
+              src: "./imgs/group1_5_right.png",
+            },
+            {
+              key: "1_2_right",
+              src: "./imgs/group1_2_right.png",
+            },
+            {
+              key: "1_2_right",
+              src: "./imgs/group1_2_right.png",
+            },
+            {
+              key: "1_2_right",
+              src: "./imgs/group1_2_right.png",
+            },
+          ],
+        ],
+        [
+          [
+            {
+              key: "1_1_left",
+              src: "./imgs/group1_1_left.png",
+            },
+            {
+              key: "1_2_left",
+              src: "./imgs/group1_2_left.png",
+            },
+            {
+              key: "1_3_left",
+              src: "./imgs/group1_3_left.png",
+            },
+            {
+              key: "1_4_left",
+              src: "./imgs/group1_4_left.png",
+            },
+            {
+              key: "1_5_left",
+              src: "./imgs/group1_5_left.png",
+            },
+            {
+              key: "1_5_left",
+              src: "./imgs/group1_5_left.png",
+            },
+          ],
+          [
+            {
+              key: "1_1_right",
+              src: "./imgs/group1_1_right.png",
+            },
+            {
+              key: "1_3_right",
+              src: "./imgs/group1_3_right.png",
+            },
+            {
+              key: "1_4_right",
+              src: "./imgs/group1_4_right.png",
+            },
+            {
+              key: "1_5_right",
+              src: "./imgs/group1_5_right.png",
+            },
+            {
+              key: "1_2_right",
+              src: "./imgs/group1_2_right.png",
+            },
+            {
+              key: "1_2_right",
+              src: "./imgs/group1_2_right.png",
+            },
+          ],
+        ],
       ],
       currentIcons: [],
       answerOfCurrentIcons: [],
@@ -1005,9 +1156,10 @@ new Vue({
       timer: null,
     };
   },
-  mounted: function () { },
+  mounted: function () {},
   created: function () {
     this.currentIcons = this.iconData[this.activeCategoryIndex];
+    this.handleRandomListen();
   },
   watch: {
     isLevelFinished(val, oldVal) {
@@ -1035,24 +1187,57 @@ new Vue({
       if (dom.requestFullscreen) {
         dom.requestFullscreen();
       } else if (dom.mozRequestFullScreen) {
-        // //FireFox 
+        //FireFox
         dom.mozRequestFullScreen();
       } else if (dom.webkitRequestFullScreen) {
-        //Chrome等 
+        //Chrome等
         dom.webkitRequestFullScreen();
       } else if (dom.msRequestFullscreen) {
         //IE11
         dom.msRequestFullscreen();
       }
-      // dom.requestFullscreen();
       this.isShowFullScreen = false;
     },
     handleEnter: function () {
       this.isEnter = true;
     },
     handleBack: function () {
+      if (!this.activeMenuIndex) {
+        this.activeLevelIndex = 0;
+        this.currentDialects = [];
+        this.answerOfDialects = {};
+        this.dialectSelectedOption = null;
+        this.dialectSelectFlag = false;
+        this.isLevelPassed = false;
+        this.isLevelFinished = false;
+      }
+      if (this.activeMenuIndex === 1) {
+        this.answerOfListens = {};
+        this.listenSelectedOption = null;
+        this.listenSelectFlag = false;
+        this.isListenPassed = false;
+        this.isListenFinished = false;
+        this.listenSwiperActiveIndex = 0;
+        this.isListenPlay = false;
+        this.progressPoint = 0;
+        this.currentTime = 0;
+        this.duration = 0;
+      }
+      if (this.activeMenuIndex === 2) {
+        this.activeTabIndex = 0;
+        this.musicSwiper = null;
+        this.musicSwiperIndex = 0;
+        this.oldPictureSwiper = null;
+        this.oldPictureSwiperIndex = 0;
+        this.isMusicPlay = false;
+      }
+      if (this.activeMenuIndex === 3) {
+        this.activeCategoryIndex = 0;
+        this.currentIcons = [];
+        this.answerOfCurrentIcons = [];
+        this.isPassed = false;
+      }
       this.activeMenuIndex = -1;
-      //todo clear
     },
     handleBackToIndex: function () {
       window.location.href = "../index.html";
@@ -1071,7 +1256,6 @@ new Vue({
         this.initMusicSwiper();
       }
     },
-
     handleDialectLevel: function (index) {
       this.activeLevelIndex = index;
       this.currentDialects = this.dialects[index];
@@ -1099,21 +1283,20 @@ new Vue({
     },
     handleRandomListen: function () {
       let temp = [];
-      const maxArray = this.getMaxArray();
+      const maxArray = this.getRandomMaxLimitArray();
       const itemIndex = this.randomIndexByMaxArray(maxArray);
       this.listens.forEach((t, index) => {
         temp.push(t[itemIndex[index]]);
       });
-      this.currentListens = temp;
+      this.currentListens = JSON.parse(JSON.stringify(temp));
     },
-    getMaxArray() {
+    getRandomMaxLimitArray() {
       let maxArray = [];
       this.listens.forEach((t) => {
-        if (t.length) {
-          const max = t.length - 1;
-          maxArray.push(max);
-        }
+        const max = t.length;
+        maxArray.push(max);
       });
+      console.log(maxArray);
       return maxArray;
     },
     randomIndexByMaxArray: function (arr) {
@@ -1122,6 +1305,7 @@ new Vue({
         const _index = Math.floor(Math.random() * t);
         result.push(_index);
       });
+      console.log(result);
       return result;
     },
     handleListenClickOption: function (index, item) {
@@ -1138,7 +1322,6 @@ new Vue({
     },
     handlePlayListen: function () {
       const audio = this.$refs.listen;
-      this.duration = audio.duration;
       if (audio.paused) {
         audio.play();
         this.isListenPlay = true;
@@ -1149,17 +1332,22 @@ new Vue({
     },
     changeProgress: function () {
       const range = this.$refs.range;
-      this.progressPoint = range.value;
+      this.progressPoint = parseInt(range.value);
       this.currentTime = this.duration * (this.progressPoint / this.max);
       const audio = this.$refs.listen;
       audio.currentTime = this.currentTime;
     },
     timeUpdate: function (e) {
       this.currentTime = e.target.currentTime;
+      if (!this.currentTime) return false;
       this.progressPoint = 100 * (this.currentTime / this.duration);
       if (this.progressPoint === this.max) {
         this.isListenPlay = false;
       }
+    },
+    listenCanPlay() {
+      const audio = this.$refs.listen;
+      this.duration = audio.duration;
     },
     handleClickTab: function (index) {
       this.activeTabIndex = index;
@@ -1233,7 +1421,7 @@ new Vue({
       let originSuffix = originId.substring(_originIndex);
       const _targetIndex = targetId.lastIndexOf("_") + 1;
       let targetSuffix = targetId.substring(_targetIndex);
-      console.log(originSuffix, targetSuffix)
+      console.log(originSuffix, targetSuffix);
       return originSuffix === targetSuffix;
     },
     initDialectSwiper() {

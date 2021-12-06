@@ -95,7 +95,7 @@
   box-sizing: border-box;
   background: #e2d6c1;
   color: #000;
-  font-size: 2.2222vh;
+  font-size: 2vh;
   font-weight: 600;
   position: relative;
 }
@@ -218,7 +218,7 @@
   width: 100%;
   padding: 0 8vw;
   box-sizing: border-box;
-  font-size: 2.2222vh;
+  font-size: 2vh;
   position: relative;
 }
 
@@ -274,6 +274,7 @@
 
 .container .main .menu2 .bottom .headset {
   width: 2.8646vw;
+  height: 5.0926vh;
   flex: none;
 }
 
@@ -298,24 +299,23 @@
 .container .main .menu2 .bottom .audio-wrap .audio-right input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
-  border-radius: 10px;
-  height: 0.8vh;
-  z-index: 10;
+  border-radius: 0.5208vw;
+  height: 0.7407vh;
 }
 
 .container .main .menu2 .bottom .audio-wrap .audio-right input[type="range"]::-webkit-slider-runnable-track {
-  height: 0.8vh;
+  height: 0.7407vh;
   background: rgba(248, 246, 246, 0.2);
-  border-radius: 10px;
+  border-radius: 0.5208vw;
 }
 
 .container .main .menu2 .bottom .audio-wrap .audio-right input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 1.5625vw;
   width: 1.5625vw;
+  height: 1.5625vw;
   background: #3a290f;
   border: 0.2083vw solid #8b693a;
-  margin-top: -0.7vh;
+  margin-top: -1.0185vh;
   border-radius: 50%;
 }
 
@@ -539,15 +539,7 @@
   position: relative;
 }
 
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item {
-  position: absolute;
-  width: 8.0729vw;
-  height: 14.3519vh;
-  -webkit-animation: 3s bubbleup linear infinite normal;
-  animation: 3s bubbleup linear infinite normal;
-}
-
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item .bubbles {
+.container .main .menu4 .menu4-inner .icons .icons-inner .bubbles {
   position: absolute;
   left: 50%;
   margin-left: -8.2813vw;
@@ -556,19 +548,27 @@
   display: none;
 }
 
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(1) {
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item {
+  position: absolute;
+  width: 8.0729vw;
+  height: 14.3519vh;
+  -webkit-animation: 3s bubbleup linear infinite normal;
+  animation: 3s bubbleup linear infinite normal;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-5:nth-child(1) {
   left: 0;
   top: 0;
   animation-duration: 2s;
 }
 
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(2) {
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-5:nth-child(2) {
   right: 0;
   top: 0;
   animation-duration: 3s;
 }
 
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(3) {
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-5:nth-child(3) {
   left: 50%;
   top: 50%;
   margin-left: -4.0365vw;
@@ -576,16 +576,104 @@
   animation-duration: 3s;
 }
 
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(4) {
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-5:nth-child(4) {
   left: 0;
   bottom: 0;
   animation-duration: 4s;
 }
 
-.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item:nth-child(5) {
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-5:nth-child(5) {
   right: 0;
   bottom: 0;
   animation-duration: 5s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-6:nth-child(1) {
+  left: 10%;
+  top: 0;
+  animation-duration: 2s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-6:nth-child(2) {
+  right: 0;
+  top: 0;
+  animation-duration: 3s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-6:nth-child(3) {
+  left: 16%;
+  top: 50%;
+  margin-left: -4.0365vw;
+  margin-top: -7.1759vh;
+  animation-duration: 3s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-6:nth-child(4) {
+  left: 66%;
+  top: 50%;
+  margin-left: -4.0365vw;
+  margin-top: -7.1759vh;
+  animation-duration: 4s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-6:nth-child(5) {
+  left: 10%;
+  bottom: 0;
+  animation-duration: 5s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-6:nth-child(6) {
+  right: 0;
+  bottom: 0;
+  animation-duration: 6s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(1) {
+  left: 5%;
+  top: 0;
+  animation-duration: 2s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(2) {
+  right: 5%;
+  top: 0;
+  animation-duration: 3s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(3) {
+  left: 8%;
+  top: 50%;
+  margin-left: -4.0365vw;
+  margin-top: -7.1759vh;
+  animation-duration: 3s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(4) {
+  left: 50%;
+  top: 50%;
+  margin-left: -4.0365vw;
+  margin-top: -7.1759vh;
+  animation-duration: 4s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(5) {
+  left: 92%;
+  top: 50%;
+  margin-left: -4.0365vw;
+  margin-top: -7.1759vh;
+  animation-duration: 5s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(6) {
+  left: 5%;
+  bottom: 0;
+  animation-duration: 6s;
+}
+
+.container .main .menu4 .menu4-inner .icons .icons-inner .icon-item-7:nth-child(7) {
+  right: 5%;
+  bottom: 0;
+  animation-duration: 7s;
 }
 
 .container .main .menu4 .levels {
@@ -736,7 +824,7 @@
 }
 
 .container .main .modal span:nth-child(5) {
-  animation-delay: 1.0s;
+  animation-delay: 1s;
 }
 
 .container .main .modal span:nth-child(6) {
@@ -977,7 +1065,8 @@
   pointer-events: all;
 }
 
-.modal-wrap, .full-modal-wrap {
+.modal-wrap,
+.full-modal-wrap {
   position: fixed;
   top: 0;
   left: 0;
@@ -990,17 +1079,19 @@
   justify-content: center;
 }
 
-.modal-wrap .back, .full-modal-wrap .back {
+.modal-wrap .back,
+.full-modal-wrap .back {
   width: 7.3438vw;
 }
 
-.modal-wrap .full-screen, .full-modal-wrap .full-screen {
+.modal-wrap .full-screen,
+.full-modal-wrap .full-screen {
   width: 20vw;
   height: 10vh;
   text-align: center;
   line-height: 10vh;
   cursor: pointer;
-  color: #FFF;
+  color: #fff;
   font-size: 3.7037vh;
   background: #8b693a;
   border-radius: 10vh;
