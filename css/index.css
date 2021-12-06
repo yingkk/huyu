@@ -192,6 +192,8 @@
   left: 19vw;
   width: 62vw;
   height: 55vh;
+  padding: 0 6vw;
+  box-sizing: border-box;
   z-index: 1;
 }
 
@@ -201,12 +203,11 @@
 }
 
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper {
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
 }
 
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .title {
-  width: 100%;
   height: 10vh;
   line-height: 10vh;
   font-size: 3.5185vh;
@@ -216,8 +217,6 @@
 
 .container .main .menu2 .menu2-inner .swiper-container .swiper-wrapper .option {
   width: 100%;
-  padding: 0 8vw;
-  box-sizing: border-box;
   font-size: 2vh;
   position: relative;
 }
@@ -914,7 +913,7 @@
 .menu2 .swiper-button-next:after,
 .menu2 .swiper-container-rtl .swiper-button-prev:after {
   content: "";
-  background-size: cover;
+  background-size: 9.8438vw  4.6296vh;
   background-image: url("../imgs/next.png");
   background-repeat: no-repeat;
   width: 9.8438vw;
@@ -925,7 +924,7 @@
 .menu1 .swiper-button-next.swiper-button-disabled::after,
 .menu2 .swiper-button-next.swiper-button-disabled::after {
   content: "";
-  background-size: cover;
+  background-size: 9.8438vw  4.6296vh;
   background-image: url("../imgs/next_disabled.png");
   background-repeat: no-repeat;
   width: 9.8438vw;
@@ -938,7 +937,7 @@
 .menu2 .swiper-button-prev:after,
 .menu2 .swiper-container-rtl .swiper-button-next:after {
   content: "";
-  background-size: cover;
+  background-size: 9.8438vw  4.6296vh;
   background-image: url("../imgs/prev.png");
   background-repeat: no-repeat;
   width: 9.8438vw;
@@ -949,7 +948,7 @@
 .menu1 .swiper-button-prev.swiper-button-disabled::after,
 .menu2 .swiper-button-prev.swiper-button-disabled::after {
   content: "";
-  background-size: cover;
+  background-size: 9.8438vw  4.6296vh;
   background-image: url("../imgs/prev_disabled.png");
   background-repeat: no-repeat;
   width: 9.8438vw;
@@ -961,7 +960,7 @@
 .menu2 .swiper-button-prev {
   top: unset;
   bottom: 1vh;
-  left: 2vw;
+  left: 0;
   outline: none;
   width: 9.8438vw;
   height: 4.6296vh;
@@ -971,7 +970,7 @@
 .menu2 .swiper-button-next {
   top: unset;
   bottom: 1vh;
-  left: 23.6vw;
+  left: 23.7vw;
   outline: none;
   width: 9.8438vw;
   height: 4.6296vh;
@@ -988,7 +987,7 @@
 .menu2 .swiper-button-prev {
   top: unset;
   bottom: 1vh;
-  left: 16vw;
+  left: 10vw;
   outline: none;
   width: 9.8438vw;
   height: 4.6296vh;
@@ -997,7 +996,8 @@
 .menu2 .swiper-button-next {
   top: unset;
   bottom: 1vh;
-  left: 35vw;
+  left: unset;
+  right: 10vw;
   outline: none;
   width: 9.8438vw;
   height: 4.6296vh;
