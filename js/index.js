@@ -1302,7 +1302,6 @@ new Vue({
     },
     handleBack: function () {
       if (!this.activeMenuIndex) {
-        this.activeLevelIndex = 0;
         this.currentDialects = [];
         this.answerOfDialects = {};
         this.dialectSelectedOption = null;
@@ -1316,14 +1315,9 @@ new Vue({
         this.listenSelectFlag = false;
         this.isListenPassed = false;
         this.isListenFinished = false;
-        this.listenSwiperActiveIndex = 0;
         this.isListenPlay = false;
-        this.progressPoint = 0;
-        this.currentTime = 0;
-        this.duration = 0;
       }
       if (this.activeMenuIndex === 2) {
-        this.activeTabIndex = 0;
         this.musicSwiper = null;
         this.musicSwiperIndex = 0;
         this.oldPictureSwiper = null;
@@ -1331,7 +1325,6 @@ new Vue({
         this.isMusicPlay = false;
       }
       if (this.activeMenuIndex === 3) {
-        this.activeCategoryIndex = 0;
         this.currentIcons = [];
         this.answerOfCurrentIcons = [];
         this.isPassed = false;
@@ -1344,15 +1337,26 @@ new Vue({
     handleMenu: function (index) {
       this.activeMenuIndex = index;
       if (!this.activeMenuIndex) {
+        this.activeLevelIndex = 0;
         this.initDialectSwiper();
         this.handleDialectLevel(0);
       }
       if (this.activeMenuIndex === 1) {
+        this.listenSwiperActiveIndex = 0;
+        this.progressPoint = 0;
+        this.currentTime = 0;
+        this.duration = 0;
         this.handleRandomListen();
         this.initListenSwiper();
       }
       if (this.activeMenuIndex === 2) {
+        this.activeTabIndex = 0;
+        this.oldPictureSwiperIndex = 0;
         this.initMusicSwiper();
+      }
+      if(this.activeMenuIndex === 3) {
+        this.activeCategoryIndex = 0;
+        this.currentIcons = this.iconData[this.activeCategoryIndex];
       }
     },
     handleDialectLevel: function (index) {
@@ -1395,7 +1399,6 @@ new Vue({
         const max = t.length;
         maxArray.push(max);
       });
-      console.log(maxArray);
       return maxArray;
     },
     randomIndexByMaxArray: function (arr) {
@@ -1404,7 +1407,6 @@ new Vue({
         const _index = Math.floor(Math.random() * t);
         result.push(_index);
       });
-      console.log(result);
       return result;
     },
     handleListenClickOption: function (index, item) {
@@ -1472,13 +1474,13 @@ new Vue({
     },
     handleClickCategory: function (index) {
       this.isPassed = false;
+      this.answerOfCurrentIcons = [];
       this.activeCategoryIndex = index;
       //回显已抵消图标
       if (this.currentIcons.length) {
         this.currentIcons.forEach((t) => {
           if (t.length) {
             t.forEach((c) => {
-              console.log(c.key);
               $("#" + c.key).show();
             });
           }
@@ -1507,14 +1509,15 @@ new Vue({
         return;
       }
       this.answerOfCurrentIcons.push(dragElementId);
+      console.log("a"+ this.answerOfCurrentIcons.length, 'b'+this.currentIcons[0].length)
       $(".icons-inner #" + dragElementId).hide();
       $(".icons-inner #" + targetId).hide();
       $(".icons-inner #" + targetId)
         .next()
-        .fadeIn(1000, function () {
+        .fadeIn(500, function () {
           $(".icons-inner #" + targetId)
             .next()
-            .fadeOut(500);
+            .fadeOut();
           _this.isPassed = !!(
             _this.answerOfCurrentIcons.length === _this.currentIcons[0].length
           );
@@ -1531,7 +1534,6 @@ new Vue({
       let originSuffix = originId.substring(_originIndex);
       const _targetIndex = targetId.lastIndexOf("_") + 1;
       let targetSuffix = targetId.substring(_targetIndex);
-      console.log(originSuffix, targetSuffix);
       return originSuffix === targetSuffix;
     },
     initDialectSwiper() {
