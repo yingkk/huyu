@@ -487,7 +487,7 @@ new Vue({
                 value: true,
               },
             ],
-          }
+          },
         ],
         [
           {
@@ -593,15 +593,14 @@ new Vue({
               {
                 key: "A",
                 label:
-                "甲：酒店里面有没有贵重物品保险箱？乙：有的。但是你要先到大堂办理手续。甲：需不需要钱给你。乙：我们酒店服务员是不能收小费的。 甲：那就谢谢你帮我忙拿箱子。",
-              value: false,
+                  "甲：酒店里面有没有贵重物品保险箱？乙：有的。但是你要先到大堂办理手续。甲：需不需要钱给你。乙：我们酒店服务员是不能收小费的。 甲：那就谢谢你帮我忙拿箱子。",
+                value: false,
               },
               {
                 key: "B",
                 label:
-                "甲：酒店里面有没有贵重物品保险箱？乙：有的。但是你要先到大堂办理手续。甲：这些钱给你。乙：不行。我们酒店服务员是不能收小费的。 甲：那就谢谢你帮我忙拿箱子。",
-              value: true,
-               
+                  "甲：酒店里面有没有贵重物品保险箱？乙：有的。但是你要先到大堂办理手续。甲：这些钱给你。乙：不行。我们酒店服务员是不能收小费的。 甲：那就谢谢你帮我忙拿箱子。",
+                value: true,
               },
             ],
           },
@@ -654,14 +653,14 @@ new Vue({
               {
                 key: "A",
                 label:
-                "甲：这两年上海变化这么大，许多地方都认不出了。 乙：是的，现在南京路是步行街，不通车了。甲：我还想到浦东去，看看东方明珠、金茂大厦、世纪公园等等。",
-              value: true,
+                  "甲：这两年上海变化这么大，许多地方都认不出了。 乙：是的，现在南京路是步行街，不通车了。甲：我还想到浦东去，看看东方明珠、金茂大厦、世纪公园等等。",
+                value: true,
               },
               {
                 key: "B",
                 label:
-                "甲：这十年上海变化这么大，许多地方都认不出了。 乙：是的，现在南京路是步行街，不通车了。甲：我还想去看看人民公园等等。",
-              value: false,
+                  "甲：这十年上海变化这么大，许多地方都认不出了。 乙：是的，现在南京路是步行街，不通车了。甲：我还想去看看人民公园等等。",
+                value: false,
               },
             ],
           },
@@ -1033,116 +1032,216 @@ new Vue({
         [
           [
             {
-              key: "1_1_left",
-              src: "./imgs/group1_1_left.png",
+              key: "2_1_left",
+              src: "./imgs/group2_1_left.png",
             },
             {
-              key: "1_2_left",
-              src: "./imgs/group1_2_left.png",
+              key: "2_2_left",
+              src: "./imgs/group2_2_left.png",
             },
             {
-              key: "1_3_left",
-              src: "./imgs/group1_3_left.png",
+              key: "2_3_left",
+              src: "./imgs/group2_3_left.png",
             },
             {
-              key: "1_4_left",
-              src: "./imgs/group1_4_left.png",
+              key: "2_4_left",
+              src: "./imgs/group2_4_left.png",
             },
             {
-              key: "1_5_left",
-              src: "./imgs/group1_5_left.png",
+              key: "2_5_left",
+              src: "./imgs/group2_5_left.png",
             },
             {
-              key: "1_5_left",
-              src: "./imgs/group1_5_left.png",
+              key: "2_6_left",
+              src: "./imgs/group2_6_left.png",
             },
             {
-              key: "1_5_left",
-              src: "./imgs/group1_5_left.png",
+              key: "2_7_left",
+              src: "./imgs/group2_7_left.png",
             },
           ],
           [
             {
-              key: "1_1_right",
-              src: "./imgs/group1_1_right.png",
+              key: "2_1_right",
+              src: "./imgs/group2_1_right.png",
             },
             {
-              key: "1_3_right",
-              src: "./imgs/group1_3_right.png",
+              key: "2_6_right",
+              src: "./imgs/group2_6_right.png",
             },
             {
-              key: "1_4_right",
-              src: "./imgs/group1_4_right.png",
+              key: "2_4_right",
+              src: "./imgs/group2_4_right.png",
             },
             {
-              key: "1_5_right",
-              src: "./imgs/group1_5_right.png",
+              key: "2_7_right",
+              src: "./imgs/group2_7_right.png",
             },
             {
-              key: "1_2_right",
-              src: "./imgs/group1_2_right.png",
+              key: "2_5_right",
+              src: "./imgs/group2_5_right.png",
             },
             {
-              key: "1_2_right",
-              src: "./imgs/group1_2_right.png",
+              key: "2_3_right",
+              src: "./imgs/group2_3_right.png",
             },
             {
-              key: "1_2_right",
-              src: "./imgs/group1_2_right.png",
+              key: "2_2_right",
+              src: "./imgs/group2_2_right.png",
             },
           ],
         ],
         [
           [
             {
-              key: "1_1_left",
-              src: "./imgs/group1_1_left.png",
+              key: "3_1_left",
+              src: "./imgs/group3_1_left.png",
             },
             {
-              key: "1_2_left",
-              src: "./imgs/group1_2_left.png",
+              key: "3_2_left",
+              src: "./imgs/group3_2_left.png",
             },
             {
-              key: "1_3_left",
-              src: "./imgs/group1_3_left.png",
+              key: "3_3_left",
+              src: "./imgs/group3_3_left.png",
             },
             {
-              key: "1_4_left",
-              src: "./imgs/group1_4_left.png",
+              key: "3_4_left",
+              src: "./imgs/group3_4_left.png",
             },
             {
-              key: "1_5_left",
-              src: "./imgs/group1_5_left.png",
-            },
-            {
-              key: "1_5_left",
-              src: "./imgs/group1_5_left.png",
+              key: "3_5_left",
+              src: "./imgs/group3_5_left.png",
             },
           ],
           [
             {
-              key: "1_1_right",
-              src: "./imgs/group1_1_right.png",
+              key: "3_5_right",
+              src: "./imgs/group3_5_right.png",
             },
             {
-              key: "1_3_right",
-              src: "./imgs/group1_3_right.png",
+              key: "3_1_right",
+              src: "./imgs/group3_1_right.png",
             },
             {
-              key: "1_4_right",
-              src: "./imgs/group1_4_right.png",
+              key: "3_3_right",
+              src: "./imgs/group3_3_right.png",
             },
             {
-              key: "1_5_right",
-              src: "./imgs/group1_5_right.png",
+              key: "3_2_right",
+              src: "./imgs/group3_2_right.png",
             },
             {
-              key: "1_2_right",
-              src: "./imgs/group1_2_right.png",
+              key: "3_4_right",
+              src: "./imgs/group3_4_right.png",
+            },
+          ],
+        ],
+        [
+          [
+            {
+              key: "4_1_left",
+              src: "./imgs/group4_1_left.png",
             },
             {
-              key: "1_2_right",
-              src: "./imgs/group1_2_right.png",
+              key: "4_2_left",
+              src: "./imgs/group4_2_left.png",
+            },
+            {
+              key: "4_3_left",
+              src: "./imgs/group4_3_left.png",
+            },
+            {
+              key: "4_4_left",
+              src: "./imgs/group4_4_left.png",
+            },
+            {
+              key: "4_5_left",
+              src: "./imgs/group4_5_left.png",
+            },
+            {
+              key: "4_6_left",
+              src: "./imgs/group4_6_left.png",
+            },
+          ],
+          [
+            {
+              key: "4_6_right",
+              src: "./imgs/group4_6_right.png",
+            },
+            {
+              key: "4_1_right",
+              src: "./imgs/group4_1_right.png",
+            },
+            {
+              key: "4_4_right",
+              src: "./imgs/group4_4_right.png",
+            },
+            {
+              key: "4_2_right",
+              src: "./imgs/group4_2_right.png",
+            },
+            {
+              key: "4_3_right",
+              src: "./imgs/group4_3_right.png",
+            },
+            {
+              key: "4_5_right",
+              src: "./imgs/group4_5_right.png",
+            },
+          ],
+        ],
+        [
+          [
+            {
+              key: "5_1_left",
+              src: "./imgs/group5_1_left.png",
+            },
+            {
+              key: "5_2_left",
+              src: "./imgs/group5_2_left.png",
+            },
+            {
+              key: "5_3_left",
+              src: "./imgs/group5_3_left.png",
+            },
+            {
+              key: "5_4_left",
+              src: "./imgs/group5_4_left.png",
+            },
+            {
+              key: "5_5_left",
+              src: "./imgs/group5_5_left.png",
+            },
+            {
+              key: "5_6_left",
+              src: "./imgs/group5_6_left.png",
+            },
+          ],
+          [
+            {
+              key: "5_2_right",
+              src: "./imgs/group5_2_right.png",
+            },
+            {
+              key: "5_5_right",
+              src: "./imgs/group5_5_right.png",
+            },
+            {
+              key: "5_4_right",
+              src: "./imgs/group5_4_right.png",
+            },
+            {
+              key: "5_1_right",
+              src: "./imgs/group5_1_right.png",
+            },
+            {
+              key: "5_6_right",
+              src: "./imgs/group5_6_right.png",
+            },
+            {
+              key: "5_3_right",
+              src: "./imgs/group5_3_right.png",
             },
           ],
         ],
@@ -1374,7 +1473,19 @@ new Vue({
     handleClickCategory: function (index) {
       this.isPassed = false;
       this.activeCategoryIndex = index;
-      this.currentIcons = this.iconData[index] || [];
+      const temp = this.iconData[index] || [];
+      //切换分类回显已抵消图标
+      if (this.currentIcons.length) {
+        this.currentIcons.forEach((t) => {
+          if (t.length) {
+            t.forEach((c) => {
+              console.log(c.key);
+              $("#" + c.key).show();
+            });
+          }
+        });
+      }
+      this.currentIcons = JSON.parse(JSON.stringify(temp));
     },
     handleDrag: function (e) {
       e.dataTransfer.setData("id", e.currentTarget.id);
