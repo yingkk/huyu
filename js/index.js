@@ -1302,6 +1302,7 @@ new Vue({
     },
     handleBack: function () {
       if (!this.activeMenuIndex) {
+        this.activeLevelIndex = 0;
         this.currentDialects = [];
         this.answerOfDialects = {};
         this.dialectSelectedOption = null;
@@ -1316,6 +1317,13 @@ new Vue({
         this.isListenPassed = false;
         this.isListenFinished = false;
         this.isListenPlay = false;
+        this.listenSwiperActiveIndex = 0;
+        this.progressPoint = 0;
+        this.currentTime = 0;
+        this.duration = 0;
+        const audio = this.$refs.listen;
+        audio.pause();
+        audio.load();
       }
       if (this.activeMenuIndex === 2) {
         this.musicSwiper = null;
@@ -1323,8 +1331,14 @@ new Vue({
         this.oldPictureSwiper = null;
         this.oldPictureSwiperIndex = 0;
         this.isMusicPlay = false;
+        this.activeTabIndex = 0;
+        this.oldPictureSwiperIndex = 0;
+        const audio = this.$refs.music;
+        audio.pause();
+        audio.load();
       }
       if (this.activeMenuIndex === 3) {
+        this.activeCategoryIndex = 0;
         this.currentIcons = [];
         this.answerOfCurrentIcons = [];
         this.isPassed = false;
@@ -1345,7 +1359,6 @@ new Vue({
         this.listenSwiperActiveIndex = 0;
         this.progressPoint = 0;
         this.currentTime = 0;
-        this.duration = 0;
         this.handleRandomListen();
         this.initListenSwiper();
       }
@@ -1509,7 +1522,6 @@ new Vue({
         return;
       }
       this.answerOfCurrentIcons.push(dragElementId);
-      console.log("a"+ this.answerOfCurrentIcons.length, 'b'+this.currentIcons[0].length)
       $(".icons-inner #" + dragElementId).hide();
       $(".icons-inner #" + targetId).hide();
       $(".icons-inner #" + targetId)
@@ -1575,6 +1587,8 @@ new Vue({
         on: {
           slideChange: function () {
             _this.listenSwiperActiveIndex = this.activeIndex;
+            _this.progressPoint = 0;
+            _this.currentTime = 0;
             const op = _this.answerOfListens[this.activeIndex];
             if (!op) {
               _this.listenSelectFlag = false;
