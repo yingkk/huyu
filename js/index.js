@@ -1473,8 +1473,7 @@ new Vue({
     handleClickCategory: function (index) {
       this.isPassed = false;
       this.activeCategoryIndex = index;
-      const temp = this.iconData[index] || [];
-      //切换分类回显已抵消图标
+      //回显已抵消图标
       if (this.currentIcons.length) {
         this.currentIcons.forEach((t) => {
           if (t.length) {
@@ -1485,7 +1484,7 @@ new Vue({
           }
         });
       }
-      this.currentIcons = JSON.parse(JSON.stringify(temp));
+      this.currentIcons = this.iconData[index] || [];
     },
     handleDrag: function (e) {
       e.dataTransfer.setData("id", e.currentTarget.id);
