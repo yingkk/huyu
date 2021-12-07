@@ -1339,7 +1339,7 @@ new Vue({
       this.activeMenuIndex = -1;
     },
     handleBackToIndex: function () {
-      window.location.href = "../index.html";
+      window.location.reload();
     },
     handleMenu: function (index) {
       this.activeMenuIndex = index;
