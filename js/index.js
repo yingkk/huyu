@@ -522,7 +522,6 @@ new Vue({
               },
               {
                 key: "B",
-
                 label: "甲：先生，对不起，到上海火车站乘哪一辆车？ 乙：乘123。",
                 value: true,
               },
@@ -536,13 +535,13 @@ new Vue({
                 key: "A",
                 label:
                   "甲：火车站在什么地方？怎么走？  乙：穿过马路，一直向前走。到前面第一条横马路左拐。",
-                value: true,
+                value: false,
               },
               {
                 key: "B",
                 label:
                   "甲：地铁站在什么地方？怎么走？ 乙：穿过马路，一直向前走。到前面第一条横马路右拐。",
-                value: false,
+                value: true,
               },
             ],
           },
