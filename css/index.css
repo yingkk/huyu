@@ -122,7 +122,7 @@
 }
 
 .container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .option:not(:first-child) {
-  margin-top: 4vh;
+  margin-top: 2vh;
 }
 
 .container .main .menu1 .menu1-inner .swiper-wrapper .question .question-right .answer-tip {

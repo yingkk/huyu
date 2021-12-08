@@ -1266,9 +1266,11 @@ new Vue({
         this.timer = setInterval(function () {
           if (_this.seconds === 1) {
             clearInterval(_this.timer);
-            _this.activeLevelIndex += 1;
-            _this.handleDialectLevelClear();
-            _this.handleDialectLevel(_this.activeLevelIndex);
+            if(_this.activeLevelIndex < 3) {
+              _this.activeLevelIndex += 1;
+              _this.handleDialectLevelClear();
+              _this.handleDialectLevel(_this.activeLevelIndex);
+            }
             return;
           }
           _this.seconds -= 1;
@@ -1373,6 +1375,9 @@ new Vue({
     },
     handleDialectLevel: function (index) {
       this.activeLevelIndex = index;
+      if(this.activeLevelIndex < 3){
+        this.seconds = 5;
+      }
       this.currentDialects = this.dialects[index];
       this.dialectSwiper.slideTo(0);
     },
